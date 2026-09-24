@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    background-color: #061727; /* Rich TNS Deep Navy */
+    color: #F8FAFC;
+    @apply antialiased font-sans selection:bg-[#4EB829] selection:text-white min-h-screen overflow-x-hidden;
+  }
+}
+
+/* Custom Scrollbar styled for TNS Theme */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #04101B;
+}
+::-webkit-scrollbar-thumb {
+  background: #0E385D;
+  border-radius: 9999px;
+  border: 1px solid #4EB829;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #4EB829;
+}
+
+/* Print Optimization */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #photocard-export-node, #photocard-export-node * {
+    visibility: visible;
+  }
+  #photocard-export-node {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+    transform: none !important;
+  }
+}
