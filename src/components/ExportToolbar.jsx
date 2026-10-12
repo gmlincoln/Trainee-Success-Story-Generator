@@ -113,6 +113,13 @@ export const ExportToolbar = ({
         
         {/* Brand Header */}
         <div className="flex items-center gap-3">
+          <div className="h-10 px-2.5 py-1 bg-white rounded-lg flex items-center justify-center shadow-sm border border-slate-700/60">
+            <img 
+              src="/tns_logo.png" 
+              alt="Touch & Solve" 
+              className="h-7 w-auto object-contain"
+            />
+          </div>
           <div>
             <h1 className="text-base sm:text-lg font-extrabold tracking-tight flex items-center gap-2">
               দৈনিক সাফল্যের গল্প Generator

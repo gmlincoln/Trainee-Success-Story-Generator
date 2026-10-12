@@ -136,8 +136,17 @@ export default function App() {
     }));
   };
 
-  // Handle Custom Logo Upload
+  // Handle Custom Logo Upload or Reset
   const handleLogoUpload = (key, dataUrl) => {
+    if (key === 'resetAll') {
+      setCustomLogos({
+        primaryLogoUrl: null,
+        partnerLeftUrl: null,
+        partnerCenterUrl: null,
+        partnerRightUrl: null
+      });
+      return;
+    }
     setCustomLogos(prev => ({ ...prev, [key]: dataUrl }));
   };
 
