@@ -61,6 +61,13 @@ export const COLOR_THEMES = [
   }
 ];
 
+export const DEFAULT_LOGOS = {
+  primaryLogoUrl: '/tns_logo.png',
+  partnerLeftUrl: '/bcs_logo.png',
+  partnerCenterUrl: '/asset_project_logo.png',
+  partnerRightUrl: '/world-bank.png'
+};
+
 export const PRESET_CANDIDATES = [
   {
     id: 'mahbuba',

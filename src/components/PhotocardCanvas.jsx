@@ -19,36 +19,56 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     fontFamily = "'Hind Siliguri', sans-serif"
   } = theme || {};
 
-  // 1. Primary Header Logo (Top Right)
+  // 1. Primary Header Logo (Top Right - Default Touch & Solve from public)
   const renderPrimaryLogo = () => {
-    if (customLogos.primaryLogoUrl) {
-      return <img src={customLogos.primaryLogoUrl} alt="Primary Logo" className="h-11 max-w-[200px] w-auto object-contain bg-white/90 p-1.5 rounded" />;
-    }
-    return <TouchAndSolveLogo className="h-11" variant="default" />;
+    const src = customLogos?.primaryLogoUrl || '/tns_logo.png';
+    return (
+      <img 
+        src={src} 
+        alt="Touch & Solve Logo" 
+        className="h-10 sm:h-11 max-w-[210px] w-auto object-contain" 
+        crossOrigin="anonymous"
+      />
+    );
   };
 
-  // 2. Header Left Emblem/Logo (Top Left: Industry Partner Logo - Customizable)
+  // 2. Header Left Emblem/Logo (Top Left: Industry Partner Logo - Default BCS from public)
   const renderPartnerLeft = () => {
-    if (customLogos.partnerLeftUrl) {
-      return <img src={customLogos.partnerLeftUrl} alt="Industry Partner Logo" className="h-10 max-w-[220px] w-auto object-contain" />;
-    }
-    return <BcsLogo className="h-10" />;
+    const src = customLogos?.partnerLeftUrl || '/bcs_logo.png';
+    return (
+      <img 
+        src={src} 
+        alt="Industry Partner Logo" 
+        className="h-9 sm:h-10 max-w-[210px] w-auto object-contain" 
+        crossOrigin="anonymous"
+      />
+    );
   };
 
-  // 3. Sponsor Logo 1 (Center Left Logo - Customizable)
+  // 3. Sponsor Logo 1 (Center Left Logo - Default ASSET Project from public)
   const renderPartnerCenter = () => {
-    if (customLogos.partnerCenterUrl) {
-      return <img src={customLogos.partnerCenterUrl} alt="Center Left Logo" className="h-8 max-w-[160px] w-auto object-contain" />;
-    }
-    return <AssetGovtLogo className="h-8" />;
+    const src = customLogos?.partnerCenterUrl || '/asset_project_logo.png';
+    return (
+      <img 
+        src={src} 
+        alt="ASSET Project Logo" 
+        className="h-8 max-w-[160px] w-auto object-contain" 
+        crossOrigin="anonymous"
+      />
+    );
   };
 
-  // 4. Sponsor Logo 2 (Center Right Logo - Customizable)
+  // 4. Sponsor Logo 2 (Center Right Logo - Default The World Bank from public)
   const renderPartnerRight = () => {
-    if (customLogos.partnerRightUrl) {
-      return <img src={customLogos.partnerRightUrl} alt="Center Right Logo" className="h-8 max-w-[160px] w-auto object-contain" />;
-    }
-    return <WorldBankLogo className="h-8" />;
+    const src = customLogos?.partnerRightUrl || '/world-bank.png';
+    return (
+      <img 
+        src={src} 
+        alt="The World Bank Logo" 
+        className="h-8 max-w-[160px] w-auto object-contain" 
+        crossOrigin="anonymous"
+      />
+    );
   };
 
   return (

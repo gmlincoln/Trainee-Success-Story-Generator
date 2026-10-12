@@ -10,7 +10,8 @@ import {
   ZoomIn, 
   RefreshCw,
   Sliders,
-  Trash2
+  Trash2,
+  RotateCcw
 } from 'lucide-react';
 import { COLOR_THEMES } from '../data/presets';
 
@@ -607,9 +608,20 @@ export const PhotocardControls = ({
         {/* === TAB 5: LOGOS & BRANDING === */}
         {activeTab === 'branding' && (
           <div className="space-y-4">
-            <p className="text-slate-700 font-medium text-[11px] bg-emerald-50 p-2.5 rounded-lg border border-emerald-200 text-emerald-950">
-              ⚡ ফটোকার্ডের লোগো পজিশনের প্রতিটিতে নিজস্ব কাস্টম লোগো আপলোড করতে পারবেন:
-            </p>
+            <div className="flex items-center justify-between bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+              <p className="text-slate-700 font-medium text-[11px] text-emerald-950">
+                ⚡ পাবলিক ফোল্ডারের অফিসিয়াল লোগোগুলো ডিফল্ট ইমেজ হিসেবে সেট করা আছে। প্রয়োজনে নিজস্ব কাস্টম লোগো আপলোড করতে পারেন:
+              </p>
+              {(customLogos.primaryLogoUrl || customLogos.partnerLeftUrl || customLogos.partnerCenterUrl || customLogos.partnerRightUrl) && (
+                <button
+                  type="button"
+                  onClick={() => onLogoUpload('resetAll', null)}
+                  className="shrink-0 ml-2 px-2.5 py-1 text-[11px] font-bold text-rose-700 bg-rose-50 border border-rose-200 rounded-lg hover:bg-rose-100 flex items-center gap-1 shadow-sm"
+                >
+                  <RotateCcw className="w-3 h-3" /> সব ডিফল্টে রিসেট
+                </button>
+              )}
+            </div>
 
             {/* 1. Primary Header Logo (Top Right) */}
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5">
@@ -620,24 +632,25 @@ export const PhotocardControls = ({
                     onClick={() => onLogoUpload('primaryLogoUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
-                    <Trash2 className="w-3 h-3" /> রিমুভ
+                    <Trash2 className="w-3 h-3" /> ডিফল্টে ফিরুন
                   </button>
                 )}
               </div>
 
               <div className="flex items-center gap-2">
-                {customLogos.primaryLogoUrl ? (
-                  <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.primaryLogoUrl} alt="Primary Logo" className="h-full w-auto object-contain" />
-                  </div>
-                ) : (
-                  <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: Touch & Solve (TNS)
-                  </div>
-                )}
-                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                  <img 
+                    src={customLogos.primaryLogoUrl || '/tns_logo.png'} 
+                    alt="Touch & Solve Logo" 
+                    className="h-full w-auto object-contain" 
+                  />
+                </div>
+                <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
+                  {customLogos.primaryLogoUrl ? 'কাস্টম লোগো সক্রিয়' : 'ডিফল্ট: Touch & Solve (/tns_logo.png)'}
+                </div>
+                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm shrink-0">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>{customLogos.primaryLogoUrl ? 'নতুন লোগো পরিবর্তন' : 'মেইন লোগো আপলোড'}</span>
+                  <span>{customLogos.primaryLogoUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'primaryLogoUrl')} />
                 </label>
               </div>
@@ -653,24 +666,25 @@ export const PhotocardControls = ({
                     onClick={() => onLogoUpload('partnerLeftUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
-                    <Trash2 className="w-3 h-3" /> রিমুভ
+                    <Trash2 className="w-3 h-3" /> ডিফল্টে ফিরুন
                   </button>
                 )}
               </div>
 
               <div className="flex items-center gap-2">
-                {customLogos.partnerLeftUrl ? (
-                  <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerLeftUrl} alt="Industry Partner" className="h-full w-auto object-contain" />
-                  </div>
-                ) : (
-                  <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: বাংলাদেশ কম্পিউটার সমিতি (BCS)
-                  </div>
-                )}
-                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                  <img 
+                    src={customLogos.partnerLeftUrl || '/bcs_logo.png'} 
+                    alt="Industry Partner Logo" 
+                    className="h-full w-auto object-contain" 
+                  />
+                </div>
+                <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
+                  {customLogos.partnerLeftUrl ? 'কাস্টম লোগো সক্রিয়' : 'ডিফল্ট: বাংলাদেশ কম্পিউটার সমিতি (/bcs_logo.png)'}
+                </div>
+                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm shrink-0">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>{customLogos.partnerLeftUrl ? 'নতুন লোগো পরিবর্তন' : 'পার্টনার লোগো আপলোড'}</span>
+                  <span>{customLogos.partnerLeftUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerLeftUrl')} />
                 </label>
               </div>
@@ -686,24 +700,25 @@ export const PhotocardControls = ({
                     onClick={() => onLogoUpload('partnerCenterUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
-                    <Trash2 className="w-3 h-3" /> রিমুভ
+                    <Trash2 className="w-3 h-3" /> ডিফল্টে ফিরুন
                   </button>
                 )}
               </div>
 
               <div className="flex items-center gap-2">
-                {customLogos.partnerCenterUrl ? (
-                  <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerCenterUrl} alt="Center Left Sponsor" className="h-full w-auto object-contain" />
-                  </div>
-                ) : (
-                  <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: ASSET Project / বাংলাদেশ সরকার
-                  </div>
-                )}
-                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                  <img 
+                    src={customLogos.partnerCenterUrl || '/asset_project_logo.png'} 
+                    alt="Center Left Sponsor" 
+                    className="h-full w-auto object-contain" 
+                  />
+                </div>
+                <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
+                  {customLogos.partnerCenterUrl ? 'কাস্টম লোগো সক্রিয়' : 'ডিফল্ট: ASSET Project (/asset_project_logo.png)'}
+                </div>
+                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm shrink-0">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>{customLogos.partnerCenterUrl ? 'নতুন লোগো পরিবর্তন' : 'স্পন্সর লোগো ১ আপলোড'}</span>
+                  <span>{customLogos.partnerCenterUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerCenterUrl')} />
                 </label>
               </div>
@@ -719,24 +734,25 @@ export const PhotocardControls = ({
                     onClick={() => onLogoUpload('partnerRightUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
-                    <Trash2 className="w-3 h-3" /> রিমুভ
+                    <Trash2 className="w-3 h-3" /> ডিফল্টে ফিরুন
                   </button>
                 )}
               </div>
 
               <div className="flex items-center gap-2">
-                {customLogos.partnerRightUrl ? (
-                  <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerRightUrl} alt="Center Right Sponsor" className="h-full w-auto object-contain" />
-                  </div>
-                ) : (
-                  <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: THE WORLD BANK
-                  </div>
-                )}
-                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                  <img 
+                    src={customLogos.partnerRightUrl || '/world-bank.png'} 
+                    alt="Center Right Sponsor" 
+                    className="h-full w-auto object-contain" 
+                  />
+                </div>
+                <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
+                  {customLogos.partnerRightUrl ? 'কাস্টম লোগো সক্রিয়' : 'ডিফল্ট: THE WORLD BANK (/world-bank.png)'}
+                </div>
+                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm shrink-0">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>{customLogos.partnerRightUrl ? 'নতুন লোগো পরিবর্তন' : 'স্পন্সর লোগো ২ আপলোড'}</span>
+                  <span>{customLogos.partnerRightUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerRightUrl')} />
                 </label>
               </div>
