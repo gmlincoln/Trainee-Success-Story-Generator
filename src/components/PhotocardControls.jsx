@@ -665,17 +665,17 @@ export const PhotocardControls = ({
                   min="0.8" 
                   max="2.0" 
                   step="0.05"
-                  value={customLogos.primaryLogoZoom ?? 1.25} 
+                  value={customLogos.primaryLogoZoom ?? 1.10} 
                   onChange={(e) => onLogoUpload('primaryLogoZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
                 <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
-                  {Math.round((customLogos.primaryLogoZoom ?? 1.25) * 100)}%
+                  {Math.round((customLogos.primaryLogoZoom ?? 1.10) * 100)}%
                 </span>
-                {(customLogos.primaryLogoZoom ?? 1.25) !== 1.25 && (
+                {(customLogos.primaryLogoZoom ?? 1.10) !== 1.10 && (
                   <button 
                     type="button"
-                    onClick={() => onLogoUpload('primaryLogoZoom', 1.25)}
+                    onClick={() => onLogoUpload('primaryLogoZoom', 1.10)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
                   >
                     রিসেট
@@ -789,17 +789,17 @@ export const PhotocardControls = ({
                   min="0.8" 
                   max="2.2" 
                   step="0.05"
-                  value={customLogos.partnerCenterZoom ?? 1.35} 
+                  value={customLogos.partnerCenterZoom ?? 1.05} 
                   onChange={(e) => onLogoUpload('partnerCenterZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
                 <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
-                  {Math.round((customLogos.partnerCenterZoom ?? 1.35) * 100)}%
+                  {Math.round((customLogos.partnerCenterZoom ?? 1.05) * 100)}%
                 </span>
-                {(customLogos.partnerCenterZoom ?? 1.35) !== 1.35 && (
+                {(customLogos.partnerCenterZoom ?? 1.05) !== 1.05 && (
                   <button 
                     type="button"
-                    onClick={() => onLogoUpload('partnerCenterZoom', 1.35)}
+                    onClick={() => onLogoUpload('partnerCenterZoom', 1.05)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
                   >
                     রিসেট
@@ -851,17 +851,17 @@ export const PhotocardControls = ({
                   min="0.8" 
                   max="2.2" 
                   step="0.05"
-                  value={customLogos.partnerRightZoom ?? 1.35} 
+                  value={customLogos.partnerRightZoom ?? 1.15} 
                   onChange={(e) => onLogoUpload('partnerRightZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
                 <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
-                  {Math.round((customLogos.partnerRightZoom ?? 1.35) * 100)}%
+                  {Math.round((customLogos.partnerRightZoom ?? 1.15) * 100)}%
                 </span>
-                {(customLogos.partnerRightZoom ?? 1.35) !== 1.35 && (
+                {(customLogos.partnerRightZoom ?? 1.15) !== 1.15 && (
                   <button 
                     type="button"
-                    onClick={() => onLogoUpload('partnerRightZoom', 1.35)}
+                    onClick={() => onLogoUpload('partnerRightZoom', 1.15)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
                   >
                     রিসেট

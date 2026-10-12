@@ -68,7 +68,7 @@ export const DEFAULT_LOGOS = {
   partnerRightUrl: '/world-bank.png',
   primaryLogoZoom: 1.10,
   partnerLeftZoom: 1.25,
-  partnerCenterZoom: 1.15,
+  partnerCenterZoom: 1.05,
   partnerRightZoom: 1.15,
 };
 
@@ -78,12 +78,12 @@ export const PRESET_CANDIDATES = [
     name: 'মাহবুবা আক্তার মিতা',
     designation: 'LOGO DESIGNER',
     quote: '"দক্ষতা উন্নয়নের মাধ্যমে কর্মসংস্থানের সুযোগ"',
-    story: 'মাহবুবা আক্তার মিতা ASSET Project-এর Graphic Design প্রশিক্ষণের মাধ্যমে BCS Training Institute-এর অধীনে Logo Design, Adobe Photoshop, Illustrator ও Creative Design-এর মতো প্রয়োজনীয় দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী Logo Designer হিসেবে সাফল্যের পথে এগিয়ে চলেছেন।',
+    story: 'মাহবুবা আক্তার মিতা ASSET Project-এর Graphic Design প্রশিক্ষণের মাধ্যমে Touch and Solve-এর অধীনে Logo Design, Adobe Photoshop, Illustrator ও Creative Design-এর মতো প্রয়োজনীয় দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী Logo Designer হিসেবে সাফল্যের পথে এগিয়ে চলেছেন।',
     
     // Header & Ticker
     headerSubTitle: 'দৈনিক',
     headerNewsTitle: 'সাফল্যের গল্প',
-    topTickerPrefix: 'BCS TRAINING INSTITUTE',
+    topTickerPrefix: 'TOUCH AND SOLVE',
     topTickerText: 'তাদের প্রশিক্ষণার্থীদের সাফল্যের গল্পগুলো তুলে ধরছে এবং প্রতিদিন অনুপ্রেরণা জোগাচ্ছে।',
     batchPrefix: 'ব্যাচ #',
     batchNo: '২০২৪',
@@ -92,7 +92,7 @@ export const PRESET_CANDIDATES = [
     field1Label: 'প্রোগ্রাম:',
     field1Value: 'ENTERPRISE-BASED TRAINING (EBT)',
     field2Label: 'প্রশিক্ষণ প্রতিষ্ঠান:',
-    field2Value: 'BCS TRAINING INSTITUTE',
+    field2Value: 'TOUCH AND SOLVE',
     field3Label: 'পেশা:',
     field3Value: 'LOGO DESIGNER',
     field4Label: 'ফলাফল:',
@@ -103,7 +103,7 @@ export const PRESET_CANDIDATES = [
     field6Value: '১০,০০০ টাকা',
 
     // Callout & Footer
-    highlightsText: 'দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে BCS TRAINING INSTITUTE',
+    highlightsText: 'দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে TOUCH AND SOLVE',
     highlightsDesc: 'কোর্স শেষে শিক্ষার্থীদের সফল ক্যারিয়ার গড়তে প্রতিষ্ঠানটি সরাসরি ইন্টার্নশিপ এবং জব প্লেসমেন্ট সহায়তা প্রদান করে থাকে।',
     classroomLabel: '[ক্লাশ রুম বা ল্যাব ছবি]',
     detailsBtnText: 'বিস্তারিত',
@@ -112,7 +112,7 @@ export const PRESET_CANDIDATES = [
 
     // Legacy / Photos
     program: 'ENTERPRISE-BASED TRAINING (EBT)',
-    trainingInstitute: 'BCS TRAINING INSTITUTE',
+    trainingInstitute: 'TOUCH AND SOLVE',
     profession: 'LOGO DESIGNER',
     result: 'COMPETENT',
     presentEmployer: 'TECH SOLUTION LTD.',

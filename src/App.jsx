@@ -28,7 +28,7 @@ export default function App() {
     partnerRightUrl: null,
     primaryLogoZoom: 1.10,
     partnerLeftZoom: 1.25,
-    partnerCenterZoom: 1.15,
+    partnerCenterZoom: 1.05,
     partnerRightZoom: 1.15,
   });
 
@@ -150,7 +150,7 @@ export default function App() {
         partnerRightUrl: null,
         primaryLogoZoom: 1.10,
         partnerLeftZoom: 1.25,
-        partnerCenterZoom: 1.15,
+        partnerCenterZoom: 1.05,
         partnerRightZoom: 1.15,
       });
       return;
@@ -190,7 +190,7 @@ export default function App() {
       partnerRightUrl: null,
       primaryLogoZoom: 1.10,
       partnerLeftZoom: 1.25,
-      partnerCenterZoom: 1.15,
+      partnerCenterZoom: 1.05,
       partnerRightZoom: 1.15,
     });
     setSplitPercent(45);

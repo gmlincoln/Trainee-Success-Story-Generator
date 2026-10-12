@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { 
-  TouchAndSolveLogo, 
-  AssetGovtLogo, 
-  WorldBankLogo, 
-  BcsLogo 
+import {
+  TouchAndSolveLogo,
+  AssetGovtLogo,
+  WorldBankLogo,
+  BcsLogo
 } from './Logos';
 
 export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFieldClick }, ref) => {
@@ -24,10 +24,10 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     const src = customLogos?.primaryLogoUrl || '/tns_logo.png';
     const zoom = customLogos?.primaryLogoZoom ?? 1.10;
     return (
-      <img 
-        src={src} 
-        alt="Touch & Solve Logo" 
-        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150" 
+      <img
+        src={src}
+        alt="Touch & Solve Logo"
+        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150"
         style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
@@ -39,10 +39,10 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     const src = customLogos?.partnerLeftUrl || '/bcs_logo.png';
     const zoom = customLogos?.partnerLeftZoom ?? 1.25;
     return (
-      <img 
-        src={src} 
-        alt="Industry Partner Logo" 
-        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150" 
+      <img
+        src={src}
+        alt="Industry Partner Logo"
+        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150"
         style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
@@ -52,12 +52,12 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
   // 3. Sponsor Logo 1 (Center Left Logo - Default ASSET Project from public, zoomed in)
   const renderPartnerCenter = () => {
     const src = customLogos?.partnerCenterUrl || '/asset_project_logo.png';
-    const zoom = customLogos?.partnerCenterZoom ?? 1.15;
+    const zoom = customLogos?.partnerCenterZoom ?? 1.05;
     return (
-      <img 
-        src={src} 
-        alt="ASSET Project Logo" 
-        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150" 
+      <img
+        src={src}
+        alt="ASSET Project Logo"
+        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150"
         style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
@@ -69,10 +69,10 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     const src = customLogos?.partnerRightUrl || '/world-bank.png';
     const zoom = customLogos?.partnerRightZoom ?? 1.15;
     return (
-      <img 
-        src={src} 
-        alt="The World Bank Logo" 
-        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150" 
+      <img
+        src={src}
+        alt="The World Bank Logo"
+        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150"
         style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
@@ -80,18 +80,18 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
   };
 
   return (
-    <div 
-      ref={ref} 
+    <div
+      ref={ref}
       id="photocard-export-node"
       className="w-[1080px] bg-white text-slate-900 overflow-hidden shadow-2xl relative select-none font-sans border border-slate-300 rounded-lg"
       style={{ fontFamily }}
     >
       {/* 1. TOP NEWS TICKER BAR */}
-      <div 
+      <div
         className="w-full py-2 px-6 flex items-center justify-between text-xs tracking-wide text-white transition-colors"
         style={{ backgroundColor: topBarBg }}
       >
-        <div 
+        <div
           className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap cursor-pointer hover:opacity-90"
           onClick={() => onFieldClick && onFieldClick('topTickerText')}
           title="Click to edit top ticker"
@@ -104,7 +104,7 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </span>
         </div>
 
-        <div 
+        <div
           className="flex items-center gap-1 shrink-0 text-[11px] font-bold uppercase bg-white/10 px-2.5 py-0.5 rounded font-mono cursor-pointer hover:bg-white/20"
           onClick={() => onFieldClick && onFieldClick('batchNo')}
           title="Click to edit batch number"
@@ -115,16 +115,16 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
       </div>
 
       {/* 2. MAIN NEWS HEADER BANNER */}
-      <div 
+      <div
         className="w-full px-6 py-4 flex items-center justify-between relative border-b-4"
-        style={{ 
+        style={{
           backgroundColor: headerBg,
           borderColor: secondary,
           backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%), radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'
         }}
       >
         {/* Left: Industry Partner emblem (Customizable - Default BCS, enlarged container) */}
-        <div 
+        <div
           className="flex items-center justify-center bg-white px-4 py-1.5 rounded-xl shadow-md cursor-pointer hover:opacity-95 border border-slate-100 min-w-[210px] max-w-[260px] h-[64px] overflow-hidden"
           onClick={() => onFieldClick && onFieldClick('logoPartnerLeft')}
           title="Click to edit or upload Industry Partner Logo"
@@ -133,7 +133,7 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
         </div>
 
         {/* Center: Main News Banner Title */}
-        <div 
+        <div
           className="text-center flex flex-col items-center cursor-pointer hover:opacity-90 px-4"
           onClick={() => onFieldClick && onFieldClick('headerNewsTitle')}
           title="Click to edit header title"
@@ -141,11 +141,11 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           <div className="text-amber-300 text-sm font-semibold tracking-widest uppercase mb-0.5">
             {data.headerSubTitle || 'দৈনিক'}
           </div>
-          <h1 
+          <h1
             className="text-4xl font-extrabold text-white tracking-tight drop-shadow-md leading-none"
-            style={{ 
+            style={{
               fontFamily: "'Noto Serif Bengali', serif",
-              textShadow: '2px 2px 4px rgba(0,0,0,0.4)' 
+              textShadow: '2px 2px 4px rgba(0,0,0,0.4)'
             }}
           >
             {data.headerNewsTitle || 'সাফল্যের গল্প'}
@@ -153,7 +153,7 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
         </div>
 
         {/* Right: Primary Company Logo (Touch & Solve - Pure White Background, enlarged container) */}
-        <div 
+        <div
           className="bg-white px-4 py-1.5 rounded-xl shadow-md flex items-center justify-center cursor-pointer hover:opacity-95 border border-slate-100 min-w-[210px] max-w-[260px] h-[64px] overflow-hidden"
           onClick={() => onFieldClick && onFieldClick('logoPrimary')}
           title="Click to edit or upload Primary Header Logo (TNS)"
@@ -164,20 +164,20 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
 
       {/* 3. MAIN CONTENT GRID (3 COLUMNS: 4 + 5 + 3 = 12) */}
       <div className="grid grid-cols-12 gap-5 p-6 bg-slate-50/70">
-        
+
         {/* === COLUMN 1: LEFT PHOTO & NAME BADGE (4 COLS) === */}
         <div className="col-span-4 flex flex-col items-center justify-between bg-white rounded-xl p-4 shadow-sm border border-slate-200/80">
-          
+
           {/* Candidate Photo Frame */}
           <div className="w-full flex flex-col items-center">
-            <div 
+            <div
               className="w-full aspect-[4/5] rounded-xl overflow-hidden bg-slate-100 border-2 border-slate-300/80 relative shadow-inner group cursor-pointer"
               onClick={() => onFieldClick && onFieldClick('photoUrl')}
               title="Click to change candidate photo"
             >
               {data.photoUrl ? (
-                <img 
-                  src={data.photoUrl} 
+                <img
+                  src={data.photoUrl}
                   alt={data.name}
                   className="w-full h-full object-cover transition-transform duration-300"
                   style={{
@@ -198,14 +198,14 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
 
             {/* Tagline quotes below photo */}
             <div className="mt-3 text-center px-1">
-              <p 
+              <p
                 className="text-[11px] font-bold text-red-700 leading-tight cursor-pointer hover:underline"
                 onClick={() => onFieldClick && onFieldClick('quote')}
                 title="Click to edit quote"
               >
                 {data.quote}
               </p>
-              <p 
+              <p
                 className="text-[11px] font-extrabold uppercase text-slate-700 tracking-wider mt-1 cursor-pointer hover:underline"
                 onClick={() => onFieldClick && onFieldClick('designation')}
                 title="Click to edit designation"
@@ -216,9 +216,9 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </div>
 
           {/* Name & Designation TNS Badge Card */}
-          <div 
+          <div
             className="w-full mt-4 py-3 px-3 rounded-lg text-center shadow-md border flex flex-col items-center justify-center transition-all cursor-pointer hover:opacity-95"
-            style={{ 
+            style={{
               backgroundColor: badgeBg,
               color: badgeTextColor || '#FFFFFF',
               borderColor: secondary
@@ -241,15 +241,15 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           <div>
             {/* Tagline & Subheading */}
             <div className="mb-2">
-              <span 
+              <span
                 className="text-[12px] font-bold text-slate-800 tracking-wide block cursor-pointer hover:text-blue-600"
                 onClick={() => onFieldClick && onFieldClick('quote')}
                 title="Click to edit quote"
               >
                 {data.quote ? data.quote.replace(/"/g, '') : 'দক্ষতা উন্নয়নের মাধ্যমে কর্মসংস্থানের সুযোগ'}
               </span>
-              <span 
-                className="text-sm font-extrabold uppercase tracking-wider block mt-0.5 cursor-pointer hover:opacity-80" 
+              <span
+                className="text-sm font-extrabold uppercase tracking-wider block mt-0.5 cursor-pointer hover:opacity-80"
                 style={{ color: primary }}
                 onClick={() => onFieldClick && onFieldClick('designation')}
                 title="Click to edit designation"
@@ -259,11 +259,11 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
             </div>
 
             {/* Large Bengali Name Headline */}
-            <h2 
+            <h2
               className="text-3xl font-extrabold mb-3 leading-snug tracking-tight cursor-pointer hover:opacity-80"
-              style={{ 
+              style={{
                 fontFamily: "'Noto Serif Bengali', serif",
-                color: primary 
+                color: primary
               }}
               onClick={() => onFieldClick && onFieldClick('name')}
               title="Click to edit name"
@@ -272,7 +272,7 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
             </h2>
 
             {/* Bio Story Body Paragraph */}
-            <p 
+            <p
               className="text-slate-700 text-[13.5px] leading-relaxed font-normal text-justify mb-5 cursor-pointer hover:bg-slate-50 p-1 rounded"
               onClick={() => onFieldClick && onFieldClick('story')}
               title="Click to edit story paragraph"
@@ -284,17 +284,17 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           <div>
             {/* Sponsor & Partner Logos Row - Enlarged for clear visibility */}
             <div className="py-2.5 px-4 bg-white rounded-xl border border-slate-200/90 flex items-center justify-around gap-4 mb-4 shadow-sm h-[68px] overflow-hidden">
-              <div 
+              <div
                 className="h-full flex-1 flex items-center justify-center cursor-pointer hover:opacity-90 overflow-hidden px-1"
                 onClick={() => onFieldClick && onFieldClick('logoPartnerCenter')}
                 title="Click to upload Sponsor Logo 1"
               >
                 {renderPartnerCenter()}
               </div>
-              
+
               <div className="w-[1px] h-8 bg-slate-200 shrink-0"></div>
 
-              <div 
+              <div
                 className="h-full flex-1 flex items-center justify-center cursor-pointer hover:opacity-90 overflow-hidden px-1"
                 onClick={() => onFieldClick && onFieldClick('logoPartnerRight')}
                 title="Click to upload Sponsor Logo 2"
@@ -304,21 +304,21 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
             </div>
 
             {/* Callout Box + Classroom Photo */}
-            <div 
+            <div
               className="rounded-xl p-3.5 border-l-4 shadow-sm flex items-center gap-3 transition-all"
               style={{ backgroundColor: boxBg, borderColor: primary }}
             >
               {/* Highlight Left Text */}
               <div className="flex-1">
-                <h4 
-                  className="text-[12px] font-bold text-slate-900 leading-tight mb-1 cursor-pointer hover:underline" 
+                <h4
+                  className="text-[12px] font-bold text-slate-900 leading-tight mb-1 cursor-pointer hover:underline"
                   style={{ color: primary }}
                   onClick={() => onFieldClick && onFieldClick('highlightsText')}
                   title="Click to edit highlight title"
                 >
                   {data.highlightsText || `দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে ${data.trainingInstitute}`}
                 </h4>
-                <p 
+                <p
                   className="text-[11px] text-slate-600 leading-tight cursor-pointer hover:underline"
                   onClick={() => onFieldClick && onFieldClick('highlightsDesc')}
                   title="Click to edit highlight description"
@@ -329,15 +329,15 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
 
               {/* Classroom / Training Photo Thumbnail */}
               {data.showClassroomPhoto && (
-                <div 
+                <div
                   className="w-28 h-20 rounded-lg overflow-hidden bg-slate-200 border border-slate-300 shrink-0 relative flex flex-col items-center justify-center cursor-pointer hover:opacity-90"
                   onClick={() => onFieldClick && onFieldClick('classroomPhotoUrl')}
                   title="Click to edit classroom photo"
                 >
                   {data.classroomPhotoUrl ? (
-                    <img 
-                      src={data.classroomPhotoUrl} 
-                      alt="Training Classroom" 
+                    <img
+                      src={data.classroomPhotoUrl}
+                      alt="Training Classroom"
                       className="w-full h-full object-cover"
                       crossOrigin="anonymous"
                     />
@@ -418,7 +418,7 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </div>
 
           {/* Details Action Banner Button */}
-          <div 
+          <div
             className="w-full py-2.5 rounded-lg text-center font-extrabold text-white text-sm tracking-wide shadow mt-3 transition-colors cursor-pointer hover:opacity-95"
             style={{ backgroundColor: primary }}
             onClick={() => onFieldClick && onFieldClick('detailsBtnText')}
@@ -431,22 +431,18 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
       </div>
 
       {/* 4. BOTTOM FOOTER BAR */}
-      <div 
+      <div
         className="w-full py-2 px-6 bg-slate-900 text-slate-300 text-[11px] font-semibold flex items-center justify-between border-t border-slate-800"
       >
-        <span 
+        <span
           className="cursor-pointer hover:text-white transition-colors"
           onClick={() => onFieldClick && onFieldClick('footerLeftText')}
           title="Click to edit footer left"
         >
           {data.footerLeftText || 'ক্যারিয়ার'}
         </span>
-        <div className="text-[10px] text-slate-400 font-mono tracking-wide flex items-center gap-1.5">
-          <span>Developed by <span className="text-[#4EB829] font-bold">Touch and Solve</span></span>
-          <span className="text-slate-600">•</span>
-          <span className="text-slate-300">address: www.touchandsolve.com</span>
-        </div>
-        <span 
+
+        <span
           className="cursor-pointer hover:text-white transition-colors"
           onClick={() => onFieldClick && onFieldClick('footerRightText')}
           title="Click to edit footer right"
