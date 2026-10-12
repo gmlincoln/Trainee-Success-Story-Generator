@@ -75,10 +75,10 @@ export const DEFAULT_LOGOS = {
 export const PRESET_CANDIDATES = [
   {
     id: 'mahbuba',
-    name: 'মাহবুবা আক্তার মিতা',
+    name: 'সাদিয়া তাসনিম নেহা',
     designation: 'LOGO DESIGNER',
     quote: '"দক্ষতা উন্নয়নের মাধ্যমে কর্মসংস্থানের সুযোগ"',
-    story: 'মাহবুবা আক্তার মিতা ASSET Project-এর Graphic Design প্রশিক্ষণের মাধ্যমে Touch and Solve-এর অধীনে Logo Design, Adobe Photoshop, Illustrator ও Creative Design-এর মতো প্রয়োজনীয় দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী Logo Designer হিসেবে সাফল্যের পথে এগিয়ে চলেছেন।',
+    story: 'সাদিয়া তাসনিম নেহা ASSET Project-এর Graphic Design প্রশিক্ষণের মাধ্যমে Touch and Solve-এর অধীনে Logo Design, Adobe Photoshop, Illustrator ও Creative Design-এর মতো প্রয়োজনীয় দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী Logo Designer হিসেবে সাফল্যের পথে এগিয়ে চলেছেন।',
     
     // Header & Ticker
     headerSubTitle: 'দৈনিক',

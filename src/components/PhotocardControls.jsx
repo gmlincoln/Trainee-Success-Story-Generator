@@ -190,7 +190,7 @@ export const PhotocardControls = ({
                 value={data.name || ''}
                 onChange={(e) => handleInputChange('name', e.target.value)}
                 className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-[#4EB829] focus:outline-none font-bold"
-                placeholder="যেমন: মাহবুবা আক্তার মিতা"
+                placeholder="যেমন: সাদিয়া তাসনিম নেহা"
               />
             </div>
 
