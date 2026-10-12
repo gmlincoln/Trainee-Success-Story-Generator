@@ -19,53 +19,61 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     fontFamily = "'Hind Siliguri', sans-serif"
   } = theme || {};
 
-  // 1. Primary Header Logo (Top Right - Default Touch & Solve from public)
+  // 1. Primary Header Logo (Top Right - Default Touch & Solve from public, zoomed in)
   const renderPrimaryLogo = () => {
     const src = customLogos?.primaryLogoUrl || '/tns_logo.png';
+    const zoom = customLogos?.primaryLogoZoom ?? 1.10;
     return (
       <img 
         src={src} 
         alt="Touch & Solve Logo" 
-        className="h-10 sm:h-11 max-w-[210px] w-auto object-contain" 
+        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150" 
+        style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
     );
   };
 
-  // 2. Header Left Emblem/Logo (Top Left: Industry Partner Logo - Default BCS from public)
+  // 2. Header Left Emblem/Logo (Top Left: Industry Partner Logo - Default BCS from public, zoomed in)
   const renderPartnerLeft = () => {
     const src = customLogos?.partnerLeftUrl || '/bcs_logo.png';
+    const zoom = customLogos?.partnerLeftZoom ?? 1.25;
     return (
       <img 
         src={src} 
         alt="Industry Partner Logo" 
-        className="h-9 sm:h-10 max-w-[210px] w-auto object-contain" 
+        className="h-14 max-h-[58px] max-w-[240px] w-auto object-contain transition-transform duration-150" 
+        style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
     );
   };
 
-  // 3. Sponsor Logo 1 (Center Left Logo - Default ASSET Project from public)
+  // 3. Sponsor Logo 1 (Center Left Logo - Default ASSET Project from public, zoomed in)
   const renderPartnerCenter = () => {
     const src = customLogos?.partnerCenterUrl || '/asset_project_logo.png';
+    const zoom = customLogos?.partnerCenterZoom ?? 1.15;
     return (
       <img 
         src={src} 
         alt="ASSET Project Logo" 
-        className="h-8 max-w-[160px] w-auto object-contain" 
+        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150" 
+        style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
     );
   };
 
-  // 4. Sponsor Logo 2 (Center Right Logo - Default The World Bank from public)
+  // 4. Sponsor Logo 2 (Center Right Logo - Default The World Bank from public, zoomed in)
   const renderPartnerRight = () => {
     const src = customLogos?.partnerRightUrl || '/world-bank.png';
+    const zoom = customLogos?.partnerRightZoom ?? 1.15;
     return (
       <img 
         src={src} 
         alt="The World Bank Logo" 
-        className="h-8 max-w-[160px] w-auto object-contain" 
+        className="h-12 max-h-[52px] max-w-[190px] w-auto object-contain transition-transform duration-150" 
+        style={{ transform: `scale(${zoom})` }}
         crossOrigin="anonymous"
       />
     );
@@ -115,9 +123,9 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%), radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'
         }}
       >
-        {/* Left: Industry Partner emblem (Customizable - Default BCS) */}
+        {/* Left: Industry Partner emblem (Customizable - Default BCS, enlarged container) */}
         <div 
-          className="flex items-center gap-3 bg-white px-3.5 py-1.5 rounded-lg shadow-md cursor-pointer hover:opacity-95 border border-slate-100"
+          className="flex items-center justify-center bg-white px-4 py-1.5 rounded-xl shadow-md cursor-pointer hover:opacity-95 border border-slate-100 min-w-[210px] max-w-[260px] h-[64px] overflow-hidden"
           onClick={() => onFieldClick && onFieldClick('logoPartnerLeft')}
           title="Click to edit or upload Industry Partner Logo"
         >
@@ -144,9 +152,9 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </h1>
         </div>
 
-        {/* Right: Primary Company Logo (Touch & Solve - Pure White Background) */}
+        {/* Right: Primary Company Logo (Touch & Solve - Pure White Background, enlarged container) */}
         <div 
-          className="bg-white px-3.5 py-1.5 rounded-lg shadow-md flex items-center justify-center cursor-pointer hover:opacity-95 border border-slate-100"
+          className="bg-white px-4 py-1.5 rounded-xl shadow-md flex items-center justify-center cursor-pointer hover:opacity-95 border border-slate-100 min-w-[210px] max-w-[260px] h-[64px] overflow-hidden"
           onClick={() => onFieldClick && onFieldClick('logoPrimary')}
           title="Click to edit or upload Primary Header Logo (TNS)"
         >
@@ -274,20 +282,20 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </div>
 
           <div>
-            {/* Sponsor & Partner Logos Row */}
-            <div className="py-2.5 px-3 bg-slate-50 rounded-xl border border-slate-200/90 flex items-center justify-around gap-2 mb-4">
+            {/* Sponsor & Partner Logos Row - Enlarged for clear visibility */}
+            <div className="py-2.5 px-4 bg-white rounded-xl border border-slate-200/90 flex items-center justify-around gap-4 mb-4 shadow-sm h-[68px] overflow-hidden">
               <div 
-                className="h-8 flex items-center justify-center cursor-pointer hover:opacity-90"
+                className="h-full flex-1 flex items-center justify-center cursor-pointer hover:opacity-90 overflow-hidden px-1"
                 onClick={() => onFieldClick && onFieldClick('logoPartnerCenter')}
                 title="Click to upload Sponsor Logo 1"
               >
                 {renderPartnerCenter()}
               </div>
               
-              <div className="w-[1px] h-6 bg-slate-300"></div>
+              <div className="w-[1px] h-8 bg-slate-200 shrink-0"></div>
 
               <div 
-                className="h-8 flex items-center justify-center cursor-pointer hover:opacity-90"
+                className="h-full flex-1 flex items-center justify-center cursor-pointer hover:opacity-90 overflow-hidden px-1"
                 onClick={() => onFieldClick && onFieldClick('logoPartnerRight')}
                 title="Click to upload Sponsor Logo 2"
               >
@@ -424,11 +432,27 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
 
       {/* 4. BOTTOM FOOTER BAR */}
       <div 
-        className="w-full py-2 px-6 bg-slate-900 text-slate-300 text-[11px] font-semibold flex items-center justify-between border-t border-slate-800 cursor-pointer"
-        onClick={() => onFieldClick && onFieldClick('footerLeftText')}
+        className="w-full py-2 px-6 bg-slate-900 text-slate-300 text-[11px] font-semibold flex items-center justify-between border-t border-slate-800"
       >
-        <span>{data.footerLeftText || 'ক্যারিয়ার'}</span>
-        <span>{data.footerRightText || 'সাফল্যের গল্প'}</span>
+        <span 
+          className="cursor-pointer hover:text-white transition-colors"
+          onClick={() => onFieldClick && onFieldClick('footerLeftText')}
+          title="Click to edit footer left"
+        >
+          {data.footerLeftText || 'ক্যারিয়ার'}
+        </span>
+        <div className="text-[10px] text-slate-400 font-mono tracking-wide flex items-center gap-1.5">
+          <span>Developed by <span className="text-[#4EB829] font-bold">Touch and Solve</span></span>
+          <span className="text-slate-600">•</span>
+          <span className="text-slate-300">address: www.touchandsolve.com</span>
+        </div>
+        <span 
+          className="cursor-pointer hover:text-white transition-colors"
+          onClick={() => onFieldClick && onFieldClick('footerRightText')}
+          title="Click to edit footer right"
+        >
+          {data.footerRightText || 'সাফল্যের গল্প'}
+        </span>
       </div>
 
     </div>

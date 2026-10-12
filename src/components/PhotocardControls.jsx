@@ -638,7 +638,7 @@ export const PhotocardControls = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
                   <img 
                     src={customLogos.primaryLogoUrl || '/tns_logo.png'} 
                     alt="Touch & Solve Logo" 
@@ -653,6 +653,34 @@ export const PhotocardControls = ({
                   <span>{customLogos.primaryLogoUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'primaryLogoUrl')} />
                 </label>
+              </div>
+
+              {/* Logo Zoom Slider */}
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-200/80">
+                <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
+                </span>
+                <input 
+                  type="range" 
+                  min="0.8" 
+                  max="2.0" 
+                  step="0.05"
+                  value={customLogos.primaryLogoZoom ?? 1.25} 
+                  onChange={(e) => onLogoUpload('primaryLogoZoom', parseFloat(e.target.value))}
+                  className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
+                />
+                <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
+                  {Math.round((customLogos.primaryLogoZoom ?? 1.25) * 100)}%
+                </span>
+                {(customLogos.primaryLogoZoom ?? 1.25) !== 1.25 && (
+                  <button 
+                    type="button"
+                    onClick={() => onLogoUpload('primaryLogoZoom', 1.25)}
+                    className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
+                  >
+                    রিসেট
+                  </button>
+                )}
               </div>
             </div>
 
@@ -672,7 +700,7 @@ export const PhotocardControls = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
                   <img 
                     src={customLogos.partnerLeftUrl || '/bcs_logo.png'} 
                     alt="Industry Partner Logo" 
@@ -687,6 +715,34 @@ export const PhotocardControls = ({
                   <span>{customLogos.partnerLeftUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerLeftUrl')} />
                 </label>
+              </div>
+
+              {/* Logo Zoom Slider */}
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-200/80">
+                <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
+                </span>
+                <input 
+                  type="range" 
+                  min="0.8" 
+                  max="2.0" 
+                  step="0.05"
+                  value={customLogos.partnerLeftZoom ?? 1.25} 
+                  onChange={(e) => onLogoUpload('partnerLeftZoom', parseFloat(e.target.value))}
+                  className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
+                />
+                <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
+                  {Math.round((customLogos.partnerLeftZoom ?? 1.25) * 100)}%
+                </span>
+                {(customLogos.partnerLeftZoom ?? 1.25) !== 1.25 && (
+                  <button 
+                    type="button"
+                    onClick={() => onLogoUpload('partnerLeftZoom', 1.25)}
+                    className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
+                  >
+                    রিসেট
+                  </button>
+                )}
               </div>
             </div>
 
@@ -706,7 +762,7 @@ export const PhotocardControls = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
                   <img 
                     src={customLogos.partnerCenterUrl || '/asset_project_logo.png'} 
                     alt="Center Left Sponsor" 
@@ -721,6 +777,34 @@ export const PhotocardControls = ({
                   <span>{customLogos.partnerCenterUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerCenterUrl')} />
                 </label>
+              </div>
+
+              {/* Logo Zoom Slider */}
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-200/80">
+                <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
+                </span>
+                <input 
+                  type="range" 
+                  min="0.8" 
+                  max="2.2" 
+                  step="0.05"
+                  value={customLogos.partnerCenterZoom ?? 1.35} 
+                  onChange={(e) => onLogoUpload('partnerCenterZoom', parseFloat(e.target.value))}
+                  className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
+                />
+                <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
+                  {Math.round((customLogos.partnerCenterZoom ?? 1.35) * 100)}%
+                </span>
+                {(customLogos.partnerCenterZoom ?? 1.35) !== 1.35 && (
+                  <button 
+                    type="button"
+                    onClick={() => onLogoUpload('partnerCenterZoom', 1.35)}
+                    className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
+                  >
+                    রিসেট
+                  </button>
+                )}
               </div>
             </div>
 
@@ -740,7 +824,7 @@ export const PhotocardControls = ({
               </div>
 
               <div className="flex items-center gap-2">
-                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm">
+                <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
                   <img 
                     src={customLogos.partnerRightUrl || '/world-bank.png'} 
                     alt="Center Right Sponsor" 
@@ -755,6 +839,34 @@ export const PhotocardControls = ({
                   <span>{customLogos.partnerRightUrl ? 'পরিবর্তন' : 'আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerRightUrl')} />
                 </label>
+              </div>
+
+              {/* Logo Zoom Slider */}
+              <div className="flex items-center gap-2 pt-2 border-t border-slate-200/80">
+                <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
+                  <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
+                </span>
+                <input 
+                  type="range" 
+                  min="0.8" 
+                  max="2.2" 
+                  step="0.05"
+                  value={customLogos.partnerRightZoom ?? 1.35} 
+                  onChange={(e) => onLogoUpload('partnerRightZoom', parseFloat(e.target.value))}
+                  className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
+                />
+                <span className="text-[11px] font-mono font-bold text-emerald-700 min-w-[42px] text-right">
+                  {Math.round((customLogos.partnerRightZoom ?? 1.35) * 100)}%
+                </span>
+                {(customLogos.partnerRightZoom ?? 1.35) !== 1.35 && (
+                  <button 
+                    type="button"
+                    onClick={() => onLogoUpload('partnerRightZoom', 1.35)}
+                    className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
+                  >
+                    রিসেট
+                  </button>
+                )}
               </div>
             </div>
 

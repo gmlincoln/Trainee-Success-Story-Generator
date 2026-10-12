@@ -8,10 +8,10 @@ import { ShieldCheck, Maximize2, Sparkles, GripVertical } from 'lucide-react';
 export default function App() {
   // Candidate form data state (defaults to TNS Mahbuba preset)
   const [candidateData, setCandidateData] = useState(PRESET_CANDIDATES[0]);
-  
+
   // Theme state (defaults to Touch & Solve TNS Brand theme)
   const [activeTheme, setActiveTheme] = useState(COLOR_THEMES[0]);
-  
+
   // Custom theme colors state
   const [customThemeColors, setCustomThemeColors] = useState({
     primary: COLOR_THEMES[0].primary,
@@ -20,12 +20,16 @@ export default function App() {
     topBarBg: COLOR_THEMES[0].topBarBg
   });
 
-  // Custom uploaded logos state
+  // Custom uploaded logos state with default zoom for rectangular logos
   const [customLogos, setCustomLogos] = useState({
     primaryLogoUrl: null,
     partnerLeftUrl: null,
     partnerCenterUrl: null,
-    partnerRightUrl: null
+    partnerRightUrl: null,
+    primaryLogoZoom: 1.10,
+    partnerLeftZoom: 1.25,
+    partnerCenterZoom: 1.15,
+    partnerRightZoom: 1.15,
   });
 
   // Active tab state for editor controls
@@ -136,14 +140,18 @@ export default function App() {
     }));
   };
 
-  // Handle Custom Logo Upload or Reset
+  // Handle Custom Logo Upload, Zoom, or Reset
   const handleLogoUpload = (key, dataUrl) => {
     if (key === 'resetAll') {
       setCustomLogos({
         primaryLogoUrl: null,
         partnerLeftUrl: null,
         partnerCenterUrl: null,
-        partnerRightUrl: null
+        partnerRightUrl: null,
+        primaryLogoZoom: 1.10,
+        partnerLeftZoom: 1.25,
+        partnerCenterZoom: 1.15,
+        partnerRightZoom: 1.15,
       });
       return;
     }
@@ -179,7 +187,11 @@ export default function App() {
       primaryLogoUrl: null,
       partnerLeftUrl: null,
       partnerCenterUrl: null,
-      partnerRightUrl: null
+      partnerRightUrl: null,
+      primaryLogoZoom: 1.10,
+      partnerLeftZoom: 1.25,
+      partnerCenterZoom: 1.15,
+      partnerRightZoom: 1.15,
     });
     setSplitPercent(45);
     setAutoFit(true);
@@ -200,7 +212,7 @@ export default function App() {
 
   return (
     <div className="min-h-screen bg-[#061727] text-slate-100 flex flex-col font-sans selection:bg-[#4EB829] selection:text-white">
-      
+
       {/* Top Navigation & Export Bar */}
       <ExportToolbar
         canvasRef={canvasRef}
@@ -215,13 +227,13 @@ export default function App() {
       />
 
       {/* Main Responsive Flexible Split Layout Container */}
-      <main 
+      <main
         ref={containerRef}
         className="flex-1 max-w-[1800px] w-full mx-auto p-3 sm:p-4 lg:p-6 flex flex-col lg:flex-row items-stretch relative"
       >
-        
+
         {/* === LEFT COLUMN: PHOTO CARD STUDIO (FLEXIBLE WIDTH) === */}
-        <div 
+        <div
           style={{ width: window.innerWidth >= 1024 ? `${splitPercent}%` : '100%' }}
           className="flex flex-col items-center justify-start space-y-4 w-full pr-0 lg:pr-3 transition-all duration-75"
         >
@@ -239,27 +251,24 @@ export default function App() {
             <div className="hidden sm:flex items-center gap-1 bg-[#04101B] p-1 rounded-lg border border-[#0E385D]">
               <button
                 onClick={() => setSplitPercent(45)}
-                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
-                  splitPercent === 45 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
-                }`}
+                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${splitPercent === 45 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
+                  }`}
                 title="Default Split: Photocard Studio 45% / Editor 55%"
               >
                 ৪৫/৫৫ (ডিফল্ট)
               </button>
               <button
                 onClick={() => setSplitPercent(50)}
-                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
-                  splitPercent === 50 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
-                }`}
+                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${splitPercent === 50 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
+                  }`}
                 title="Balanced 50/50 Split"
               >
                 ৫০/৫০
               </button>
               <button
                 onClick={() => setSplitPercent(60)}
-                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
-                  splitPercent === 60 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
-                }`}
+                className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${splitPercent === 60 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
+                  }`}
                 title="Photocard Studio 60% / Editor 40%"
               >
                 ৬০/৪০
@@ -270,11 +279,10 @@ export default function App() {
             <div className="flex items-center gap-2">
               <button
                 onClick={() => setAutoFit(!autoFit)}
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${
-                  autoFit 
-                    ? 'bg-[#4EB829] text-white border-[#5cd130] shadow'
-                    : 'bg-[#0E385D] text-slate-200 border-[#1b4b7a] hover:bg-[#164b7c]'
-                }`}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border ${autoFit
+                  ? 'bg-[#4EB829] text-white border-[#5cd130] shadow'
+                  : 'bg-[#0E385D] text-slate-200 border-[#1b4b7a] hover:bg-[#164b7c]'
+                  }`}
                 title="Toggle responsive auto-fit scaling"
               >
                 <Maximize2 className="w-3.5 h-3.5" />
@@ -288,7 +296,7 @@ export default function App() {
           </div>
 
           {/* Scalable Studio Preview Box */}
-          <div 
+          <div
             ref={studioContainerRef}
             className="w-full bg-[#081E31]/60 border border-[#0E385D] rounded-2xl p-3 sm:p-5 flex flex-col items-center justify-start overflow-auto shadow-2xl relative min-h-[460px] sm:min-h-[580px]"
           >
@@ -297,21 +305,21 @@ export default function App() {
 
             {/* Hint Notice */}
             <div className="mb-4 text-[11px] text-slate-300 font-medium flex items-center gap-1.5 bg-[#04101B]/90 px-3.5 py-1 rounded-full border border-[#0E385D] z-10 shadow-sm">
-              <span className="text-[#4EB829] font-bold">💡 টিপস:</span> 
+              <span className="text-[#4EB829] font-bold">💡 টিপস:</span>
               কার্ডের যে কোনো লেখায় বা লোগোতে ক্লিক করে সরাসরি এডিট করতে পারবেন
             </div>
 
             {/* Responsive Scaled Wrapper Box */}
-            <div 
-              style={{ 
+            <div
+              style={{
                 width: `${canvasOriginalWidth * zoomLevel}px`,
                 height: `${canvasOriginalHeight * zoomLevel}px`,
                 position: 'relative'
               }}
               className="shadow-2xl rounded-xl overflow-hidden z-10 transition-all duration-75"
             >
-              <div 
-                style={{ 
+              <div
+                style={{
                   width: `${canvasOriginalWidth}px`,
                   transform: `scale(${zoomLevel})`,
                   transformOrigin: 'top left',
@@ -339,30 +347,27 @@ export default function App() {
         </div>
 
         {/* === VERTICAL DRAGGABLE DIVIDER LINE BETWEEN STUDIO AND EDITOR === */}
-        <div 
+        <div
           onMouseDown={handleMouseDown}
-          className={`hidden lg:flex items-center justify-center w-4 relative cursor-col-resize select-none group my-2 transition-colors ${
-            isDragging ? 'bg-[#4EB829]/20' : 'hover:bg-[#081E31]'
-          }`}
+          className={`hidden lg:flex items-center justify-center w-4 relative cursor-col-resize select-none group my-2 transition-colors ${isDragging ? 'bg-[#4EB829]/20' : 'hover:bg-[#081E31]'
+            }`}
           title="মাউস দিয়ে টেনে ফটোকার্ড ও এডিটরের স্প্লিট সাইজ ছোট-বড় করুন (Drag to resize layout)"
         >
           {/* Vertical Separator Line */}
-          <div className={`w-[2px] h-full transition-colors ${
-            isDragging ? 'bg-[#4EB829]' : 'bg-[#0E385D] group-hover:bg-[#4EB829]'
-          }`} />
+          <div className={`w-[2px] h-full transition-colors ${isDragging ? 'bg-[#4EB829]' : 'bg-[#0E385D] group-hover:bg-[#4EB829]'
+            }`} />
 
           {/* Drag Handle Grip Pill Button */}
-          <div className={`absolute top-1/2 -translate-y-1/2 w-6 h-10 rounded-full flex items-center justify-center shadow-lg border transition-all ${
-            isDragging 
-              ? 'bg-[#4EB829] text-white border-[#5cd130] scale-110' 
-              : 'bg-[#081E31] text-slate-300 border-[#0E385D] group-hover:bg-[#4EB829] group-hover:text-white group-hover:border-[#4EB829]'
-          }`}>
+          <div className={`absolute top-1/2 -translate-y-1/2 w-6 h-10 rounded-full flex items-center justify-center shadow-lg border transition-all ${isDragging
+            ? 'bg-[#4EB829] text-white border-[#5cd130] scale-110'
+            : 'bg-[#081E31] text-slate-300 border-[#0E385D] group-hover:bg-[#4EB829] group-hover:text-white group-hover:border-[#4EB829]'
+            }`}>
             <GripVertical className="w-3.5 h-3.5" />
           </div>
         </div>
 
         {/* === RIGHT COLUMN: EDITING OPTIONS FORM (FLEXIBLE WIDTH) === */}
-        <div 
+        <div
           style={{ width: window.innerWidth >= 1024 ? `${100 - splitPercent}%` : '100%' }}
           className="w-full pl-0 lg:pl-3 sticky top-20 lg:h-[calc(100vh-6rem)] transition-all duration-75"
         >
@@ -389,13 +394,13 @@ export default function App() {
         </p>
         <p className="text-[11px] text-slate-400">
           Developed by{' '}
-          <a 
-            href="https://imlincoln.me" 
-            target="_blank" 
+          <a
+            href="https://www.touchandsolve.com"
+            target="_blank"
             rel="noopener noreferrer"
             className="font-bold text-[#4EB829] hover:underline hover:text-[#60db34] transition-colors"
           >
-            Golam Maula Lincoln
+            Touch and Solve
           </a>
         </p>
       </footer>

@@ -65,7 +65,11 @@ export const DEFAULT_LOGOS = {
   primaryLogoUrl: '/tns_logo.png',
   partnerLeftUrl: '/bcs_logo.png',
   partnerCenterUrl: '/asset_project_logo.png',
-  partnerRightUrl: '/world-bank.png'
+  partnerRightUrl: '/world-bank.png',
+  primaryLogoZoom: 1.10,
+  partnerLeftZoom: 1.25,
+  partnerCenterZoom: 1.15,
+  partnerRightZoom: 1.15,
 };
 
 export const PRESET_CANDIDATES = [
