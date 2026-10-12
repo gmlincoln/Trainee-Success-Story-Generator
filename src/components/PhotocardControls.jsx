@@ -31,7 +31,11 @@ export const PhotocardControls = ({
   const handleInputChange = (field, value) => {
     const updates = { [field]: value };
     if (field === 'field1Value') updates.program = value;
-    if (field === 'field2Value') updates.trainingInstitute = value;
+    if (field === 'field2Value') {
+      updates.trainingInstitute = value;
+      updates.highlightsText = `দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে ${value}`;
+      updates.topTickerPrefix = value;
+    }
     if (field === 'field3Value') updates.profession = value;
     if (field === 'field4Value') updates.result = value;
     if (field === 'field5Value') updates.presentEmployer = value;
@@ -67,25 +71,32 @@ export const PhotocardControls = ({
   const handleGenerateStory = () => {
     const name = data.name || 'শিক্ষার্থী';
     const designation = data.designation || 'পেশাদার';
-    const inst = data.field2Value || data.trainingInstitute || 'Touch & Solve';
+    const inst = data.field2Value || data.trainingInstitute || 'প্রশিক্ষণ প্রতিষ্ঠান';
     
     const generatedStory = `${name} ASSET Project-এর প্রশিক্ষণের মাধ্যমে ${inst}-এর অধীনে ${designation} বিষয়ে প্রয়োজনীয় পেশাগত ও কারিগরি দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী ${designation} হিসেবে সফলতার সঙ্গে কর্মজীবনে এগিয়ে চলেছেন।`;
     
-    onChange({ ...data, story: generatedStory });
+    const highlights = `দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে ${inst}`;
+
+    onChange({ 
+      ...data, 
+      story: generatedStory,
+      highlightsText: highlights,
+      topTickerPrefix: inst
+    });
   };
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden flex flex-col h-full text-slate-900">
       
-      {/* Sidebar TNS Header */}
+      {/* Sidebar Header */}
       <div className="bg-[#081E31] text-white p-4 border-b border-[#0E385D] flex items-center justify-between">
         <div>
           <h2 className="text-base font-extrabold flex items-center gap-2 text-white">
             <Sparkles className="w-5 h-5 text-[#4EB829]" />
-            TNS ফটোকার্ড এডিটর
+            ফটোকার্ড এডিটর
           </h2>
           <p className="text-xs text-slate-300 mt-0.5 font-medium">
-            Touch &amp; Solve অফিশিয়াল ফটোকার্ড কাস্টমাইজার
+            অফিশিয়াল ফটোকার্ড কাস্টমাইজার
           </p>
         </div>
       </div>
@@ -597,7 +608,7 @@ export const PhotocardControls = ({
         {activeTab === 'branding' && (
           <div className="space-y-4">
             <p className="text-slate-700 font-medium text-[11px] bg-emerald-50 p-2.5 rounded-lg border border-emerald-200 text-emerald-950">
-              ⚡ Touch &amp; Solve লোগো সহ কার্ডের ৪টি লোগো পজিশনের প্রতিটিতে নিজস্ব কাস্টম লোগো আপলোড করতে পারবেন:
+              ⚡ ফটোকার্ডের লোগো পজিশনের প্রতিটিতে নিজস্ব কাস্টম লোগো আপলোড করতে পারবেন:
             </p>
 
             {/* 1. Primary Header Logo (Top Right) */}
@@ -614,29 +625,29 @@ export const PhotocardControls = ({
                 )}
               </div>
 
-              <div className="mb-2">
-                <div className="p-2.5 rounded-lg border border-[#4EB829] bg-emerald-50 text-slate-900 font-bold flex items-center justify-between shadow-sm">
-                  <div>
-                    <span className="block font-bold text-sm">Touch &amp; Solve</span>
-                    <span className="text-[10px] text-[#38A169] font-bold">অফিসিয়াল TNS ব্র্যান্ড লোগো</span>
+              <div className="flex items-center gap-2">
+                {customLogos.primaryLogoUrl ? (
+                  <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
+                    <img src={customLogos.primaryLogoUrl} alt="Primary Logo" className="h-full w-auto object-contain" />
                   </div>
-                  <span className="text-[10px] bg-[#4EB829] text-white px-2 py-0.5 rounded-full font-extrabold">অফিশিয়াল</span>
-                </div>
+                ) : (
+                  <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
+                    ডিফল্ট: Touch & Solve (TNS)
+                  </div>
+                )}
+                <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
+                  <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
+                  <span>{customLogos.primaryLogoUrl ? 'নতুন লোগো পরিবর্তন' : 'মেইন লোগো আপলোড'}</span>
+                  <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'primaryLogoUrl')} />
+                </label>
               </div>
-
-              {/* Upload Custom Primary Logo */}
-              <label className="cursor-pointer flex items-center justify-center gap-2 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm">
-                <Upload className="w-4 h-4 text-[#4EB829]" />
-                <span>{customLogos.primaryLogoUrl ? 'নতুন মেইন লোগো পরিবর্তন' : 'মেইন লোগো আপলোড করুন'}</span>
-                <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'primaryLogoUrl')} />
-              </label>
             </div>
 
 
-            {/* 2. Header Left Emblem/Logo (Top Left) */}
+            {/* 2. Industry Partner Logo (Top Left - Customizable) */}
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#0E385D]">২. হেডার বাম লোগো (Top Left Logo)</span>
+                <span className="font-bold text-[#0E385D]">২. ইন্ডাস্ট্রি পার্টনার লোগো (Industry Partner Logo)</span>
                 {customLogos.partnerLeftUrl && (
                   <button 
                     onClick={() => onLogoUpload('partnerLeftUrl', null)}
@@ -650,26 +661,26 @@ export const PhotocardControls = ({
               <div className="flex items-center gap-2">
                 {customLogos.partnerLeftUrl ? (
                   <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerLeftUrl} alt="Partner Left" className="h-full w-auto object-contain" />
+                    <img src={customLogos.partnerLeftUrl} alt="Industry Partner" className="h-full w-auto object-contain" />
                   </div>
                 ) : (
                   <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: BWCCI Partner
+                    ডিফল্ট: বাংলাদেশ কম্পিউটার সমিতি (BCS)
                   </div>
                 )}
                 <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>হেডার বাম লোগো আপলোড</span>
+                  <span>{customLogos.partnerLeftUrl ? 'নতুন লোগো পরিবর্তন' : 'পার্টনার লোগো আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerLeftUrl')} />
                 </label>
               </div>
             </div>
 
 
-            {/* 3. Sponsor Logo 1 (Center Row - Left) */}
+            {/* 3. Center Left Sponsor Logo */}
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#0E385D]">৩. স্পন্সর লোগো ১ (Center Row Left)</span>
+                <span className="font-bold text-[#0E385D]">৩. সেন্টার বাম লোগো (Center Left Logo)</span>
                 {customLogos.partnerCenterUrl && (
                   <button 
                     onClick={() => onLogoUpload('partnerCenterUrl', null)}
@@ -683,7 +694,7 @@ export const PhotocardControls = ({
               <div className="flex items-center gap-2">
                 {customLogos.partnerCenterUrl ? (
                   <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerCenterUrl} alt="Sponsor 1" className="h-full w-auto object-contain" />
+                    <img src={customLogos.partnerCenterUrl} alt="Center Left Sponsor" className="h-full w-auto object-contain" />
                   </div>
                 ) : (
                   <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
@@ -692,17 +703,17 @@ export const PhotocardControls = ({
                 )}
                 <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>স্পন্সর লোগো ১ আপলোড</span>
+                  <span>{customLogos.partnerCenterUrl ? 'নতুন লোগো পরিবর্তন' : 'স্পন্সর লোগো ১ আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerCenterUrl')} />
                 </label>
               </div>
             </div>
 
 
-            {/* 4. Sponsor Logo 2 (Center Row - Right) */}
+            {/* 4. Center Right Sponsor Logo */}
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="font-bold text-[#0E385D]">৪. স্পন্সর লোগো ২ (Center Row Right)</span>
+                <span className="font-bold text-[#0E385D]">৪. সেন্টার ডান লোগো (Center Right Logo)</span>
                 {customLogos.partnerRightUrl && (
                   <button 
                     onClick={() => onLogoUpload('partnerRightUrl', null)}
@@ -716,16 +727,16 @@ export const PhotocardControls = ({
               <div className="flex items-center gap-2">
                 {customLogos.partnerRightUrl ? (
                   <div className="w-16 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center">
-                    <img src={customLogos.partnerRightUrl} alt="Sponsor 2" className="h-full w-auto object-contain" />
+                    <img src={customLogos.partnerRightUrl} alt="Center Right Sponsor" className="h-full w-auto object-contain" />
                   </div>
                 ) : (
                   <div className="text-[11px] text-slate-500 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1">
-                    ডিফল্ট: World Bank
+                    ডিফল্ট: THE WORLD BANK
                   </div>
                 )}
                 <label className="cursor-pointer flex items-center justify-center gap-1.5 px-3 py-2 bg-[#0E385D] border border-[#163B66] rounded-lg text-white font-bold hover:bg-[#163B66] shadow-sm flex-1">
                   <Upload className="w-3.5 h-3.5 text-[#4EB829]" />
-                  <span>স্পন্সর লোগো ২ আপলোড</span>
+                  <span>{customLogos.partnerRightUrl ? 'নতুন লোগো পরিবর্তন' : 'স্পন্সর লোগো ২ আপলোড'}</span>
                   <input type="file" accept="image/*" className="hidden" onChange={(e) => handleCustomLogoUpload(e, 'partnerRightUrl')} />
                 </label>
               </div>
@@ -829,7 +840,7 @@ export const PhotocardControls = ({
                 </div>
 
                 <div>
-                  <label className="block font-semibold text-slate-600 mb-1">TNS ব্র্যান্ড গ্রিন/একসেন্ট</label>
+                  <label className="block font-semibold text-slate-600 mb-1">ব্র্যান্ড গ্রিন/একসেন্ট</label>
                   <input
                     type="color"
                     value={customThemeColors.secondary}

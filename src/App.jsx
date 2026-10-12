@@ -31,8 +31,8 @@ export default function App() {
   // Active tab state for editor controls
   const [activeTab, setActiveTab] = useState('personal');
 
-  // Flexible Split Percent state (default 58% Studio / 42% Editor)
-  const [splitPercent, setSplitPercent] = useState(58);
+  // Flexible Split Percent state (default 45% Studio / 55% Editor)
+  const [splitPercent, setSplitPercent] = useState(45);
   const [isDragging, setIsDragging] = useState(false);
 
   // Zoom scaling state & Auto-fit toggle
@@ -172,7 +172,7 @@ export default function App() {
       partnerCenterUrl: null,
       partnerRightUrl: null
     });
-    setSplitPercent(58);
+    setSplitPercent(45);
     setAutoFit(true);
   };
 
@@ -222,20 +222,20 @@ export default function App() {
               <span className="w-3 h-3 rounded-full bg-[#4EB829] animate-pulse"></span>
               <span className="text-xs font-bold uppercase tracking-wider text-slate-100 flex items-center gap-1.5">
                 <Sparkles className="w-4 h-4 text-[#4EB829]" />
-                Touch &amp; Solve (TNS) ফটোকার্ড স্টুডিও
+                প্রশিক্ষণার্থী সাফল্যের গল্প ফটোকার্ড স্টুডিও
               </span>
             </div>
 
             {/* Layout Quick Split Preset Controls */}
             <div className="hidden sm:flex items-center gap-1 bg-[#04101B] p-1 rounded-lg border border-[#0E385D]">
               <button
-                onClick={() => setSplitPercent(68)}
+                onClick={() => setSplitPercent(45)}
                 className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
-                  splitPercent >= 65 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
+                  splitPercent === 45 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
                 }`}
-                title="Make Photocard Studio Large (68%)"
+                title="Default Split: Photocard Studio 45% / Editor 55%"
               >
-                কার্ড বড়
+                ৪৫/৫৫ (ডিফল্ট)
               </button>
               <button
                 onClick={() => setSplitPercent(50)}
@@ -247,13 +247,13 @@ export default function App() {
                 ৫০/৫০
               </button>
               <button
-                onClick={() => setSplitPercent(38)}
+                onClick={() => setSplitPercent(60)}
                 className={`text-[11px] font-bold px-2 py-0.5 rounded transition-all ${
-                  splitPercent <= 42 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
+                  splitPercent === 60 ? 'bg-[#4EB829] text-white' : 'text-slate-400 hover:text-white'
                 }`}
-                title="Make Editor Panel Large (62%)"
+                title="Photocard Studio 60% / Editor 40%"
               >
-                এডিট বড়
+                ৬০/৪০
               </button>
             </div>
 
@@ -324,7 +324,7 @@ export default function App() {
           <div className="w-full text-center text-xs text-slate-400 flex items-center justify-center gap-2">
             <ShieldCheck className="w-4 h-4 text-[#4EB829]" />
             <span>
-              Touch &amp; Solve (TNS) - অফিশিয়াল ব্র্যান্ড কালার থিম ও লোগো সম্বলিত কাস্টমাইজেবল ফটোকার্ড
+              অফিশিয়াল ব্র্যান্ড কালার থিম ও লোগো সম্বলিত কাস্টমাইজেবল ফটোকার্ড
             </span>
           </div>
         </div>
@@ -374,9 +374,20 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-[#0E385D] bg-[#04101B] py-4 text-center text-xs text-slate-400 mt-6">
-        <p className="flex items-center justify-center gap-1">
-          Crafted for <span className="font-bold text-white">Touch &amp; Solve (TNS)</span> • Candidate Success Story Generator
+      <footer className="border-t border-[#0E385D] bg-[#04101B] py-4 text-center text-xs text-slate-400 mt-6 space-y-1">
+        <p className="flex items-center justify-center gap-1 font-bold text-slate-300">
+          Trainee Success Story Generator
+        </p>
+        <p className="text-[11px] text-slate-400">
+          Developed by{' '}
+          <a 
+            href="https://imlincoln.me" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-bold text-[#4EB829] hover:underline hover:text-[#60db34] transition-colors"
+          >
+            Golam Maula Lincoln
+          </a>
         </p>
       </footer>
     </div>

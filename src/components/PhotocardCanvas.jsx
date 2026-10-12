@@ -3,7 +3,7 @@ import {
   TouchAndSolveLogo, 
   AssetGovtLogo, 
   WorldBankLogo, 
-  BwcciLogo 
+  BcsLogo 
 } from './Logos';
 
 export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFieldClick }, ref) => {
@@ -27,26 +27,26 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
     return <TouchAndSolveLogo className="h-11" variant="default" />;
   };
 
-  // 2. Header Left Emblem/Logo (Top Left)
+  // 2. Header Left Emblem/Logo (Top Left: Industry Partner Logo - Customizable)
   const renderPartnerLeft = () => {
     if (customLogos.partnerLeftUrl) {
-      return <img src={customLogos.partnerLeftUrl} alt="Partner Left Logo" className="h-10 max-w-[180px] w-auto object-contain" />;
+      return <img src={customLogos.partnerLeftUrl} alt="Industry Partner Logo" className="h-10 max-w-[220px] w-auto object-contain" />;
     }
-    return <BwcciLogo className="h-10" />;
+    return <BcsLogo className="h-10" />;
   };
 
-  // 3. Sponsor Logo 1 (Center Row Left)
+  // 3. Sponsor Logo 1 (Center Left Logo - Customizable)
   const renderPartnerCenter = () => {
     if (customLogos.partnerCenterUrl) {
-      return <img src={customLogos.partnerCenterUrl} alt="Sponsor Logo 1" className="h-8 max-w-[160px] w-auto object-contain" />;
+      return <img src={customLogos.partnerCenterUrl} alt="Center Left Logo" className="h-8 max-w-[160px] w-auto object-contain" />;
     }
     return <AssetGovtLogo className="h-8" />;
   };
 
-  // 4. Sponsor Logo 2 (Center Row Right)
+  // 4. Sponsor Logo 2 (Center Right Logo - Customizable)
   const renderPartnerRight = () => {
     if (customLogos.partnerRightUrl) {
-      return <img src={customLogos.partnerRightUrl} alt="Sponsor Logo 2" className="h-8 max-w-[160px] w-auto object-contain" />;
+      return <img src={customLogos.partnerRightUrl} alt="Center Right Logo" className="h-8 max-w-[160px] w-auto object-contain" />;
     }
     return <WorldBankLogo className="h-8" />;
   };
@@ -95,11 +95,11 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           backgroundImage: 'radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.08) 0%, transparent 60%), radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%)'
         }}
       >
-        {/* Left: Partner emblem */}
+        {/* Left: Industry Partner emblem (Customizable - Default BCS) */}
         <div 
-          className="flex items-center gap-3 bg-white/95 px-3 py-1.5 rounded-lg shadow-sm cursor-pointer hover:opacity-95"
+          className="flex items-center gap-3 bg-white px-3.5 py-1.5 rounded-lg shadow-md cursor-pointer hover:opacity-95 border border-slate-100"
           onClick={() => onFieldClick && onFieldClick('logoPartnerLeft')}
-          title="Click to edit or upload Left Header Logo"
+          title="Click to edit or upload Industry Partner Logo"
         >
           {renderPartnerLeft()}
         </div>
@@ -124,11 +124,11 @@ export const PhotocardCanvas = forwardRef(({ data, theme, customLogos = {}, onFi
           </h1>
         </div>
 
-        {/* Right: Primary Company Logo */}
+        {/* Right: Primary Company Logo (Touch & Solve - Pure White Background) */}
         <div 
-          className="bg-white/95 px-3.5 py-1.5 rounded-lg shadow-sm flex items-center justify-center cursor-pointer hover:opacity-95"
+          className="bg-white px-3.5 py-1.5 rounded-lg shadow-md flex items-center justify-center cursor-pointer hover:opacity-95 border border-slate-100"
           onClick={() => onFieldClick && onFieldClick('logoPrimary')}
-          title="Click to edit or upload Primary Header Logo"
+          title="Click to edit or upload Primary Header Logo (TNS)"
         >
           {renderPrimaryLogo()}
         </div>

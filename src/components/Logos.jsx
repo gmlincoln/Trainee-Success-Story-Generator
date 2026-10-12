@@ -53,7 +53,6 @@ export const InfoSystemLogo = ({ className = "h-10", variant = "default" }) => {
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
       <svg viewBox="0 0 380 120" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Logo Text "info" (blue) "SYSTEM" (orange/red) */}
         <g>
           <text x="5" y="68" fontFamily="'Outfit', sans-serif" fontWeight="800" fontSize="56" fill={variant === 'white' ? '#FFFFFF' : '#0072CE'}>
             info
@@ -61,7 +60,6 @@ export const InfoSystemLogo = ({ className = "h-10", variant = "default" }) => {
           <text x="5" y="105" fontFamily="'Outfit', sans-serif" fontWeight="800" fontSize="38" fill={variant === 'white' ? '#F87171' : '#1E293B'} letterSpacing="2">
             SYSTEM
           </text>
-          {/* Dot Cluster on top right of info */}
           <circle cx="108" cy="22" r="6" fill="#F97316" />
           <circle cx="122" cy="15" r="4.5" fill="#F97316" />
           <circle cx="128" cy="30" r="5" fill="#F97316" />
@@ -77,68 +75,55 @@ export const InfoSystemLogo = ({ className = "h-10", variant = "default" }) => {
   );
 };
 
-// 3. Bangladesh Govt + ASSET Project Combined Logo
+// 3. Bangladesh Govt + ASSET Project Combined Logo (Fixed)
 export const AssetGovtLogo = ({ className = "h-10" }) => {
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
-      <svg viewBox="0 0 420 120" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg viewBox="0 0 450 130" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
         {/* Bangladesh Seal Circle */}
-        <g transform="translate(5, 5)">
-          <circle cx="50" cy="50" r="48" fill="#006A4E" stroke="#004D38" strokeWidth="2" />
-          <circle cx="50" cy="50" r="38" fill="#F42A41" />
-          {/* Golden Yellow Bangladesh Map outline / star graphics */}
-          <path d="M42 32 C48 30, 56 34, 58 42 C60 50, 52 56, 54 62 C56 68, 48 72, 42 66 C36 60, 40 44, 42 32 Z" fill="#FFC72C" />
-          {/* Stars */}
-          <polygon points="32,24 34,28 30,28" fill="#FFFFFF" />
-          <polygon points="68,24 70,28 66,28" fill="#FFFFFF" />
-          <polygon points="32,76 34,80 30,80" fill="#FFFFFF" />
-          <polygon points="68,76 70,80 66,80" fill="#FFFFFF" />
-          <text x="50" y="16" textAnchor="middle" fontSize="9" fill="#FFFFFF" fontWeight="bold">গণপ্রজাতন্ত্রী বাংলাদেশ</text>
-          <text x="50" y="93" textAnchor="middle" fontSize="10" fill="#FFFFFF" fontWeight="bold">সরকার</text>
+        <g transform="translate(10, 10)">
+          <circle cx="55" cy="55" r="52" fill="#006A4E" stroke="#004D38" strokeWidth="2" />
+          <circle cx="55" cy="55" r="42" fill="#F42A41" />
+          <path d="M47 36 C53 34, 61 38, 63 46 C65 54, 57 60, 59 66 C61 72, 53 76, 47 70 C41 64, 45 48, 47 36 Z" fill="#FFC72C" />
+          <polygon points="36,28 38,32 34,32" fill="#FFFFFF" />
+          <polygon points="74,28 76,32 72,32" fill="#FFFFFF" />
+          <polygon points="36,84 38,88 34,88" fill="#FFFFFF" />
+          <polygon points="74,84 76,88 72,88" fill="#FFFFFF" />
+          <text x="55" y="18" textAnchor="middle" fontSize="10" fill="#FFFFFF" fontWeight="bold">গণপ্রজাতন্ত্রী বাংলাদেশ</text>
+          <text x="55" y="102" textAnchor="middle" fontSize="11" fill="#FFFFFF" fontWeight="bold">সরকার</text>
         </g>
 
         {/* Vertical Separator */}
-        <line x1="120" y1="15" x2="120" y2="95" stroke="#CBD5E1" strokeWidth="3" strokeLinecap="round" />
+        <line x1="135" y1="15" x2="135" y2="115" stroke="#718096" strokeWidth="3" strokeLinecap="round" />
 
         {/* ASSET Project text */}
-        <g transform="translate(140, 10)">
-          {/* A */}
-          <text x="0" y="65" fontFamily="'Outfit', sans-serif" fontWeight="900" fontSize="62" fill="#8B5CF6">A</text>
-          {/* S */}
-          <text x="42" y="65" fontFamily="'Outfit', sans-serif" fontWeight="900" fontSize="62" fill="#1D4ED8">S</text>
-          {/* S */}
-          <text x="82" y="65" fontFamily="'Outfit', sans-serif" fontWeight="900" fontSize="62" fill="#10B981">S</text>
-          {/* E */}
-          <text x="122" y="65" fontFamily="'Outfit', sans-serif" fontWeight="900" fontSize="62" fill="#EF4444">E</text>
-          {/* T */}
-          <text x="162" y="65" fontFamily="'Outfit', sans-serif" fontWeight="900" fontSize="62" fill="#0284C7">T</text>
-
-          <text x="5" y="98" fontFamily="'Inter', sans-serif" fontWeight="600" fontSize="32" fill="#475569" letterSpacing="4">Project</text>
+        <g transform="translate(155, 10)">
+          <text x="0" y="65" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="66" fill="#80208C">A</text>
+          <text x="44" y="65" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="66" fill="#1C3FB7">S</text>
+          <text x="86" y="65" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="66" fill="#00A651">S</text>
+          <text x="128" y="65" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="66" fill="#E30613">E</text>
+          <text x="170" y="65" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="66" fill="#0080FF">T</text>
+          <text x="2" y="105" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="600" fontSize="36" fill="#4A5568" letterSpacing="4">Project</text>
         </g>
       </svg>
     </div>
   );
 };
 
-// 4. World Bank Logo Component
+// 4. World Bank Logo Component (Fixed)
 export const WorldBankLogo = ({ className = "h-10" }) => {
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
-      <svg viewBox="0 0 350 110" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        {/* Globe Icon */}
-        <g transform="translate(5, 5)">
-          <circle cx="50" cy="50" r="45" fill="none" stroke="#0072CE" strokeWidth="4" />
-          <ellipse cx="50" cy="50" rx="45" ry="20" fill="none" stroke="#0072CE" strokeWidth="3" />
-          <ellipse cx="50" cy="50" rx="20" ry="45" fill="none" stroke="#0072CE" strokeWidth="3" />
-          <line x1="5" y1="50" x2="95" y2="50" stroke="#0072CE" strokeWidth="3" />
+      <svg viewBox="0 0 460 120" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(10, 10)">
+          <circle cx="50" cy="50" r="46" fill="none" stroke="#0072CE" strokeWidth="5" />
+          <ellipse cx="50" cy="50" rx="46" ry="22" fill="none" stroke="#0072CE" strokeWidth="4" />
+          <ellipse cx="50" cy="50" rx="22" ry="46" fill="none" stroke="#0072CE" strokeWidth="4" />
+          <line x1="4" y1="50" x2="96" y2="50" stroke="#0072CE" strokeWidth="4" />
         </g>
-        {/* Text */}
-        <g transform="translate(115, 35)">
-          <text x="0" y="32" fontFamily="'Outfit', sans-serif" fontWeight="800" fontSize="32" fill="#002244" letterSpacing="1">
+        <g transform="translate(125, 40)">
+          <text x="0" y="36" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="900" fontSize="42" fill="#002B49" letterSpacing="1.5">
             THE WORLD BANK
-          </text>
-          <text x="2" y="54" fontFamily="'Inter', sans-serif" fontWeight="600" fontSize="13" fill="#64748B" letterSpacing="1">
-            IBRD • IDA | WORLD BANK GROUP
           </text>
         </g>
       </svg>
@@ -146,7 +131,52 @@ export const WorldBankLogo = ({ className = "h-10" }) => {
   );
 };
 
-// 5. BWCCI / Partner Logo Component
+// 5. Bangladesh Computer Samity (BCS) Official Logo Component
+export const BcsLogo = ({ className = "h-10" }) => {
+  return (
+    <div className={`flex items-center gap-2 select-none ${className}`}>
+      <svg viewBox="0 0 530 140" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* BCS Icon Group */}
+        <g transform="translate(10, 10)">
+          {/* Base horizontal green bar */}
+          <rect x="0" y="102" width="135" height="8" fill="#00A651" rx="2" />
+          {/* Vertical green stem */}
+          <rect x="63" y="92" width="8" height="28" fill="#00A651" rx="2" />
+
+          {/* Green stylized 'B' and 'S' shapes */}
+          <path 
+            d="M 5 65 C 5 25, 45 10, 65 30 C 50 45, 20 50, 20 70 C 20 90, 55 95, 75 80 C 50 100, 5 95, 5 65 Z" 
+            fill="#00A651" 
+          />
+          <path 
+            d="M 75 15 C 95 30, 120 40, 135 25 C 115 5, 80 5, 75 15 Z" 
+            fill="#00A651" 
+          />
+
+          {/* Red stylized 'C' chevron shape */}
+          <path 
+            d="M 45 35 C 70 -5, 115 -5, 135 15 C 150 30, 150 45, 125 70 L 80 112 C 70 120, 55 110, 65 95 L 115 50 C 125 40, 115 25, 95 25 C 75 25, 60 45, 45 35 Z" 
+            fill="#E30613" 
+          />
+        </g>
+
+        {/* Text Group */}
+        <g transform="translate(155, 20)">
+          {/* Top Bengali Text: বাংলাদেশ কম্পিউটার সমিতি */}
+          <text x="0" y="45" fontFamily="'Anek Bangla', 'Hind Siliguri', sans-serif" fontWeight="800" fontSize="36" fill="#000000" letterSpacing="0.5">
+            বাংলাদেশ কম্পিউটার সমিতি
+          </text>
+          {/* Bottom English Text: Bangladesh Computer Samity */}
+          <text x="0" y="85" fontFamily="'Outfit', 'Inter', sans-serif" fontWeight="800" fontSize="28" fill="#000000" letterSpacing="0">
+            Bangladesh Computer Samity
+          </text>
+        </g>
+      </svg>
+    </div>
+  );
+};
+
+// 6. BWCCI / Partner Logo Component (Legacy)
 export const BwcciLogo = ({ className = "h-10" }) => {
   return (
     <div className={`flex items-center gap-2 select-none ${className}`}>
@@ -161,20 +191,6 @@ export const BwcciLogo = ({ className = "h-10" }) => {
           <text x="0" y="25" fontFamily="'Inter', sans-serif" fontWeight="800" fontSize="22" fill="#4C1D95">BWCCI</text>
           <text x="0" y="45" fontFamily="'Inter', sans-serif" fontWeight="700" fontSize="16" fill="#6B21A8">PARTNER</text>
         </g>
-      </svg>
-    </div>
-  );
-};
-
-// 6. Technical Education Board / DTE Logo
-export const DteLogo = ({ className = "h-10" }) => {
-  return (
-    <div className={`flex items-center gap-2 select-none ${className}`}>
-      <svg viewBox="0 0 100 100" className="h-full w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="100" height="100" rx="12" fill="#0284C7" />
-        <path d="M20 70 L50 20 L80 70 Z" fill="none" stroke="#FFFFFF" strokeWidth="6" />
-        <line x1="30" y1="55" x2="70" y2="55" stroke="#FFFFFF" strokeWidth="5" />
-        <circle cx="50" cy="42" r="8" fill="#FFD700" />
       </svg>
     </div>
   );

@@ -44,7 +44,7 @@ export const ExportToolbar = ({
       });
 
       const link = document.createElement('a');
-      const filename = `${data.name || 'photocard'}_TNS_success_story.png`.replace(/\s+/g, '_');
+      const filename = `${data.name || 'photocard'}_success_story.png`.replace(/\s+/g, '_');
       link.download = filename;
       link.href = dataUrl;
       link.click();
@@ -72,7 +72,7 @@ export const ExportToolbar = ({
       });
 
       pdf.addImage(dataUrl, 'JPEG', 8, 8, 281, 194);
-      const filename = `${data.name || 'photocard'}_TNS_success_story.pdf`.replace(/\s+/g, '_');
+      const filename = `${data.name || 'photocard'}_success_story.pdf`.replace(/\s+/g, '_');
       pdf.save(filename);
 
       triggerConfetti();
@@ -111,20 +111,17 @@ export const ExportToolbar = ({
     <header className="bg-[#081E31] text-white border-b border-[#0E385D] sticky top-0 z-50 shadow-xl">
       <div className="max-w-[1800px] mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
         
-        {/* Touch & Solve Logo Brand Header */}
+        {/* Brand Header */}
         <div className="flex items-center gap-3">
-          <div className="bg-white/95 px-3 py-1.5 rounded-xl shadow-md flex items-center justify-center border border-white/20">
-            <TouchAndSolveLogo className="h-8" variant="default" />
-          </div>
           <div>
             <h1 className="text-base sm:text-lg font-extrabold tracking-tight flex items-center gap-2">
               দৈনিক সাফল্যের গল্প Generator
               <span className="text-[10px] uppercase tracking-widest font-extrabold bg-[#4EB829] text-white px-2.5 py-0.5 rounded-full shadow-sm">
-                TNS OFFICIAL
+                OFFICIAL STUDIO
               </span>
             </h1>
             <p className="text-xs text-slate-300 font-medium">
-              Candidate Success Profile &amp; Career Placement Card
+              Trainee Success Profile &amp; Career Placement Card
             </p>
           </div>
         </div>
