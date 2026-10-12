@@ -1,13 +1,13 @@
 import React from 'react';
-import { 
-  User, 
-  FileText, 
-  Image as ImageIcon, 
-  Building, 
-  Palette, 
-  Sparkles, 
-  Upload, 
-  ZoomIn, 
+import {
+  User,
+  FileText,
+  Image as ImageIcon,
+  Building,
+  Palette,
+  Sparkles,
+  Upload,
+  ZoomIn,
   RefreshCw,
   Sliders,
   Trash2,
@@ -15,12 +15,12 @@ import {
 } from 'lucide-react';
 import { COLOR_THEMES } from '../data/presets';
 
-export const PhotocardControls = ({ 
-  data, 
-  onChange, 
-  customLogos, 
-  onLogoUpload, 
-  onThemeSelect, 
+export const PhotocardControls = ({
+  data,
+  onChange,
+  customLogos,
+  onLogoUpload,
+  onThemeSelect,
   activeThemeId,
   activeTab,
   setActiveTab,
@@ -73,13 +73,13 @@ export const PhotocardControls = ({
     const name = data.name || 'শিক্ষার্থী';
     const designation = data.designation || 'পেশাদার';
     const inst = data.field2Value || data.trainingInstitute || 'প্রশিক্ষণ প্রতিষ্ঠান';
-    
+
     const generatedStory = `${name} ASSET Project-এর প্রশিক্ষণের মাধ্যমে ${inst}-এর অধীনে ${designation} বিষয়ে প্রয়োজনীয় পেশাগত ও কারিগরি দক্ষতা অর্জন করে নিজের ক্যারিয়ার গড়ার নতুন সুযোগ তৈরি করেছেন। বর্তমানে অর্জিত দক্ষতাকে কাজে লাগিয়ে তিনি একজন আত্মবিশ্বাসী ${designation} হিসেবে সফলতার সঙ্গে কর্মজীবনে এগিয়ে চলেছেন।`;
-    
+
     const highlights = `দক্ষ জনশক্তি ও সফল ক্যারিয়ার গঠনে ${inst}`;
 
-    onChange({ 
-      ...data, 
+    onChange({
+      ...data,
       story: generatedStory,
       highlightsText: highlights,
       topTickerPrefix: inst
@@ -88,7 +88,7 @@ export const PhotocardControls = ({
 
   return (
     <div className="bg-white rounded-2xl shadow-xl border border-slate-200/80 overflow-hidden flex flex-col h-full text-slate-900">
-      
+
       {/* Sidebar Header */}
       <div className="bg-[#081E31] text-white p-4 border-b border-[#0E385D] flex items-center justify-between">
         <div>
@@ -106,11 +106,10 @@ export const PhotocardControls = ({
       <div className="flex items-center justify-around bg-slate-100 p-1.5 border-b border-slate-200 text-xs font-semibold overflow-x-auto gap-1">
         <button
           onClick={() => setActiveTab('personal')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'personal'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'personal'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <User className={`w-3.5 h-3.5 ${activeTab === 'personal' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>প্রশিক্ষণার্থী তথ্য</span>
@@ -118,11 +117,10 @@ export const PhotocardControls = ({
 
         <button
           onClick={() => setActiveTab('story')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'story'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'story'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <FileText className={`w-3.5 h-3.5 ${activeTab === 'story' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>নিউজ টেক্সট</span>
@@ -130,11 +128,10 @@ export const PhotocardControls = ({
 
         <button
           onClick={() => setActiveTab('labels')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'labels'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'labels'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <Sliders className={`w-3.5 h-3.5 ${activeTab === 'labels' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>কার্ড ফিল্ডস</span>
@@ -142,11 +139,10 @@ export const PhotocardControls = ({
 
         <button
           onClick={() => setActiveTab('media')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'media'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'media'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <ImageIcon className={`w-3.5 h-3.5 ${activeTab === 'media' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>ছবি &amp; ফটো</span>
@@ -154,11 +150,10 @@ export const PhotocardControls = ({
 
         <button
           onClick={() => setActiveTab('branding')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'branding'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'branding'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <Building className={`w-3.5 h-3.5 ${activeTab === 'branding' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>লোগো &amp; ব্র্যান্ড</span>
@@ -166,11 +161,10 @@ export const PhotocardControls = ({
 
         <button
           onClick={() => setActiveTab('theme')}
-          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${
-            activeTab === 'theme'
+          className={`flex items-center gap-1 px-2.5 py-2 rounded-lg transition-all whitespace-nowrap ${activeTab === 'theme'
               ? 'bg-[#0E385D] text-white shadow font-bold'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/60'
-          }`}
+            }`}
         >
           <Palette className={`w-3.5 h-3.5 ${activeTab === 'theme' ? 'text-[#4EB829]' : 'text-slate-500'}`} />
           <span>থিম &amp; কালার</span>
@@ -179,7 +173,7 @@ export const PhotocardControls = ({
 
       {/* Tab Body Contents */}
       <div className="p-5 flex-1 overflow-y-auto space-y-4 text-slate-800 text-xs">
-        
+
         {/* === TAB 1: PERSONAL DETAILS === */}
         {activeTab === 'personal' && (
           <div className="space-y-4">
@@ -610,7 +604,7 @@ export const PhotocardControls = ({
           <div className="space-y-4">
             <div className="flex items-center justify-between bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
               <p className="text-slate-700 font-medium text-[11px] text-emerald-950">
-                ⚡ পাবলিক ফোল্ডারের অফিসিয়াল লোগোগুলো ডিফল্ট ইমেজ হিসেবে সেট করা আছে। প্রয়োজনে নিজস্ব কাস্টম লোগো আপলোড করতে পারেন:
+                ⚡ লোগোগুলো ডিফল্ট ইমেজ হিসেবে সেট করা আছে। প্রয়োজনে নিজস্ব কাস্টম লোগো আপলোড করতে পারেন:
               </p>
               {(customLogos.primaryLogoUrl || customLogos.partnerLeftUrl || customLogos.partnerCenterUrl || customLogos.partnerRightUrl) && (
                 <button
@@ -628,7 +622,7 @@ export const PhotocardControls = ({
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#0E385D]">১. মেইন হেডার লোগো (Top Right Logo)</span>
                 {customLogos.primaryLogoUrl && (
-                  <button 
+                  <button
                     onClick={() => onLogoUpload('primaryLogoUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
@@ -639,10 +633,10 @@ export const PhotocardControls = ({
 
               <div className="flex items-center gap-2">
                 <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
-                  <img 
-                    src={customLogos.primaryLogoUrl || '/tns_logo.png'} 
-                    alt="Touch & Solve Logo" 
-                    className="h-full w-auto object-contain" 
+                  <img
+                    src={customLogos.primaryLogoUrl || '/tns_logo.png'}
+                    alt="Touch & Solve Logo"
+                    className="h-full w-auto object-contain"
                   />
                 </div>
                 <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
@@ -660,12 +654,12 @@ export const PhotocardControls = ({
                 <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
                   <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
                 </span>
-                <input 
-                  type="range" 
-                  min="0.8" 
-                  max="2.0" 
+                <input
+                  type="range"
+                  min="0.8"
+                  max="2.0"
                   step="0.05"
-                  value={customLogos.primaryLogoZoom ?? 1.10} 
+                  value={customLogos.primaryLogoZoom ?? 1.10}
                   onChange={(e) => onLogoUpload('primaryLogoZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
@@ -673,7 +667,7 @@ export const PhotocardControls = ({
                   {Math.round((customLogos.primaryLogoZoom ?? 1.10) * 100)}%
                 </span>
                 {(customLogos.primaryLogoZoom ?? 1.10) !== 1.10 && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => onLogoUpload('primaryLogoZoom', 1.10)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
@@ -690,7 +684,7 @@ export const PhotocardControls = ({
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#0E385D]">২. ইন্ডাস্ট্রি পার্টনার লোগো (Industry Partner Logo)</span>
                 {customLogos.partnerLeftUrl && (
-                  <button 
+                  <button
                     onClick={() => onLogoUpload('partnerLeftUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
@@ -701,10 +695,10 @@ export const PhotocardControls = ({
 
               <div className="flex items-center gap-2">
                 <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
-                  <img 
-                    src={customLogos.partnerLeftUrl || '/bcs_logo.png'} 
-                    alt="Industry Partner Logo" 
-                    className="h-full w-auto object-contain" 
+                  <img
+                    src={customLogos.partnerLeftUrl || '/bcs_logo.png'}
+                    alt="Industry Partner Logo"
+                    className="h-full w-auto object-contain"
                   />
                 </div>
                 <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
@@ -722,12 +716,12 @@ export const PhotocardControls = ({
                 <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
                   <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
                 </span>
-                <input 
-                  type="range" 
-                  min="0.8" 
-                  max="2.0" 
+                <input
+                  type="range"
+                  min="0.8"
+                  max="2.0"
                   step="0.05"
-                  value={customLogos.partnerLeftZoom ?? 1.25} 
+                  value={customLogos.partnerLeftZoom ?? 1.25}
                   onChange={(e) => onLogoUpload('partnerLeftZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
@@ -735,7 +729,7 @@ export const PhotocardControls = ({
                   {Math.round((customLogos.partnerLeftZoom ?? 1.25) * 100)}%
                 </span>
                 {(customLogos.partnerLeftZoom ?? 1.25) !== 1.25 && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => onLogoUpload('partnerLeftZoom', 1.25)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
@@ -752,7 +746,7 @@ export const PhotocardControls = ({
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#0E385D]">৩. সেন্টার বাম লোগো (Center Left Logo)</span>
                 {customLogos.partnerCenterUrl && (
-                  <button 
+                  <button
                     onClick={() => onLogoUpload('partnerCenterUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
@@ -763,10 +757,10 @@ export const PhotocardControls = ({
 
               <div className="flex items-center gap-2">
                 <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
-                  <img 
-                    src={customLogos.partnerCenterUrl || '/asset_project_logo.png'} 
-                    alt="Center Left Sponsor" 
-                    className="h-full w-auto object-contain" 
+                  <img
+                    src={customLogos.partnerCenterUrl || '/asset_project_logo.png'}
+                    alt="Center Left Sponsor"
+                    className="h-full w-auto object-contain"
                   />
                 </div>
                 <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
@@ -784,12 +778,12 @@ export const PhotocardControls = ({
                 <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
                   <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
                 </span>
-                <input 
-                  type="range" 
-                  min="0.8" 
-                  max="2.2" 
+                <input
+                  type="range"
+                  min="0.8"
+                  max="2.2"
                   step="0.05"
-                  value={customLogos.partnerCenterZoom ?? 1.05} 
+                  value={customLogos.partnerCenterZoom ?? 1.05}
                   onChange={(e) => onLogoUpload('partnerCenterZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
@@ -797,7 +791,7 @@ export const PhotocardControls = ({
                   {Math.round((customLogos.partnerCenterZoom ?? 1.05) * 100)}%
                 </span>
                 {(customLogos.partnerCenterZoom ?? 1.05) !== 1.05 && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => onLogoUpload('partnerCenterZoom', 1.05)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
@@ -814,7 +808,7 @@ export const PhotocardControls = ({
               <div className="flex items-center justify-between">
                 <span className="font-bold text-[#0E385D]">৪. সেন্টার ডান লোগো (Center Right Logo)</span>
                 {customLogos.partnerRightUrl && (
-                  <button 
+                  <button
                     onClick={() => onLogoUpload('partnerRightUrl', null)}
                     className="text-[11px] font-bold text-rose-600 hover:text-rose-800 flex items-center gap-0.5"
                   >
@@ -825,10 +819,10 @@ export const PhotocardControls = ({
 
               <div className="flex items-center gap-2">
                 <div className="w-20 h-10 bg-white rounded border border-slate-300 p-1 flex items-center justify-center shrink-0 shadow-sm overflow-hidden">
-                  <img 
-                    src={customLogos.partnerRightUrl || '/world-bank.png'} 
-                    alt="Center Right Sponsor" 
-                    className="h-full w-auto object-contain" 
+                  <img
+                    src={customLogos.partnerRightUrl || '/world-bank.png'}
+                    alt="Center Right Sponsor"
+                    className="h-full w-auto object-contain"
                   />
                 </div>
                 <div className="text-[11px] text-slate-600 bg-white px-2.5 py-1.5 rounded border border-slate-200 font-medium flex-1 truncate">
@@ -846,12 +840,12 @@ export const PhotocardControls = ({
                 <span className="text-[11px] font-bold text-slate-700 shrink-0 flex items-center gap-1">
                   <ZoomIn className="w-3.5 h-3.5 text-[#0E385D]" /> লোগো জুম:
                 </span>
-                <input 
-                  type="range" 
-                  min="0.8" 
-                  max="2.2" 
+                <input
+                  type="range"
+                  min="0.8"
+                  max="2.2"
                   step="0.05"
-                  value={customLogos.partnerRightZoom ?? 1.15} 
+                  value={customLogos.partnerRightZoom ?? 1.15}
                   onChange={(e) => onLogoUpload('partnerRightZoom', parseFloat(e.target.value))}
                   className="flex-1 accent-[#4EB829] cursor-pointer h-1.5 bg-slate-200 rounded"
                 />
@@ -859,7 +853,7 @@ export const PhotocardControls = ({
                   {Math.round((customLogos.partnerRightZoom ?? 1.15) * 100)}%
                 </span>
                 {(customLogos.partnerRightZoom ?? 1.15) !== 1.15 && (
-                  <button 
+                  <button
                     type="button"
                     onClick={() => onLogoUpload('partnerRightZoom', 1.15)}
                     className="text-[10px] text-slate-500 hover:text-slate-800 underline shrink-0"
@@ -929,22 +923,21 @@ export const PhotocardControls = ({
                 <button
                   key={theme.id}
                   onClick={() => onThemeSelect(theme)}
-                  className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${
-                    activeThemeId === theme.id
+                  className={`p-3 rounded-xl border text-left flex flex-col justify-between transition-all ${activeThemeId === theme.id
                       ? 'border-[#4EB829] ring-2 ring-[#4EB829]/30 bg-emerald-50/70 shadow-sm'
                       : 'border-slate-200 hover:border-slate-300 bg-white'
-                  }`}
+                    }`}
                 >
                   <div className="flex items-center gap-2 mb-2">
-                    <span 
-                      className="w-4 h-4 rounded-full border border-black/10" 
-                      style={{ backgroundColor: theme.primary }} 
+                    <span
+                      className="w-4 h-4 rounded-full border border-black/10"
+                      style={{ backgroundColor: theme.primary }}
                     />
-                    <span className="w-4 h-4 rounded-full border border-black/10" 
-                      style={{ backgroundColor: theme.badgeBg }} 
+                    <span className="w-4 h-4 rounded-full border border-black/10"
+                      style={{ backgroundColor: theme.badgeBg }}
                     />
-                    <span className="w-4 h-4 rounded-full border border-black/10" 
-                      style={{ backgroundColor: theme.secondary }} 
+                    <span className="w-4 h-4 rounded-full border border-black/10"
+                      style={{ backgroundColor: theme.secondary }}
                     />
                   </div>
                   <span className="font-extrabold text-slate-900 text-[11px]">{theme.name}</span>
@@ -955,7 +948,7 @@ export const PhotocardControls = ({
             {/* Custom Palette Color Pickers */}
             <div className="p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-3">
               <span className="font-bold text-slate-800 block">কাস্টম কালার প্যালেট নির্বাচন (Custom Palette):</span>
-              
+
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="block font-semibold text-slate-600 mb-1">মেইন হেডার কালার</label>
